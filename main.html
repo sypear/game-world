@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Game World</title>
+    <meta name="description" content="Vanilla JS를 이용한 Mini Game Project">
+    <link rel="icon" type="image/x-ico" href="./resources/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div id="container" class="no-drag">
+        <header class="intro">
+            <h1 class="intro__title" lang="en" aria-label="게임 월드에 오신 걸 환영합니다."></h1>
+            <div class="intro__button" aria-hidden="true"></div>
+        </header>
+
+        <main class="game" aria-label="게임 목록">
+            <article class="game__wrapper rock-paper-scissors">
+                <a class="game__overlay" href="#" aria-label="가위 바위 보 게임: 컴퓨터와 가위 바위 보 대결을 해보세요."></a>
+                <figure class="game__image"></figure>
+                <h1 class="game__title">
+                    가위 바위 보!
+                </h1>
+                <p class="game__desc">
+                    컴퓨터와 가위 바위 보 대결을<br/>
+                    해보세요.
+                </p>
+            </article>
+            <article class="game__wrapper preparing" aria-hidden="true">
+                <a class="game__overlay" href="#"></a>
+                <figure class="game__image"></figure>
+                <h1 class="game__title" lang="en">
+                    What's the next game?
+                </h1>
+                <p class="game__desc" lang="en">
+                    wait please<br/>
+                </p>
+            </article>
+        </main>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
