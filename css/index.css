@@ -14,7 +14,6 @@
 .intro__title {
     font-size: 60px;
     line-height: 1.166666666666667;
-    letter-spacing: -0.04em;
     color: #FFF;
     text-align: center;
     transition: line-height 500ms ease-in;
@@ -64,6 +63,7 @@
     padding: 100px 20px;
     width: 100%;
     height: auto;
+    letter-spacing: -0.04em;
     background-color: #FFF;
 }
 
