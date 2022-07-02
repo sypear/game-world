@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game World : 가위 바위 보!</title>
+    <meta name="description" content="Vanilla JS를 이용한 Mini Game Project - 가위 바위 보">
+    <link rel="icon" type="image/x-ico" href="./resources/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/game-rps.css">
+    <link rel="stylesheet" href="./css/common/styles.css">
+</head>
+<body>
+    <div id="container" class="no-drag">
+        <div class="board">
+            <div class="board__menu">
+                <a href="./index.html" class="board__menu-home">
+                    <span class="sr-only">메인 페이지로 이동</span>
+                </a>
+                <div class="board__menu-timer">
+                    15
+                </div>
+            </div>
+
+            <div class="board__score">
+                <p class="board__score-pc">
+                    Your Score : <span>100</span>
+                </p>
+                <p class="board__score-player">
+                    PC Score : <span>100</span>
+                </p>
+            </div>
+
+            <div class="board__item pc-item">
+                <div class="board__image pc-image"></div>
+            </div>
+
+            <div class="board__item player-item">
+                <div class="board__button-wrapper">
+                    <button type="button" class="board__button" id="scissors-button">
+                        가위
+                    </button>
+                    <button type="button" class="board__button" id="rock-button">
+                        바위
+                    </button>
+                    <button type="button" class="board__button" id="paper-button">
+                        보
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/game-rps.js"></script>
+</body>
+</html>
