@@ -5,10 +5,55 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
+    color: #3A3845;
+}
+
+a,
+button,
+textarea {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #3A3845;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+    outline: none;
+    box-shadow: none;
 }
 
 a {
-    font-family: 'Noto Sans KR', sans-serif;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    padding-left: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
+}
+
+.sr-only {
+    position: absolute;
+    z-index: -100;
+    width: 1px; /* width나 height 중에 하나라도 0으로 주면 display: none 처럼 스크린 리더가 읽어주지 않아서 1px로 설정 */
+    height: 1px;
+    overflow: hidden; /* 1x1을 벗어난 영역 자르기 */
+    opacity: 0; /* 투명도를 0으로 */
 }
 
 .no-drag {
@@ -20,6 +65,6 @@ a {
 }
 
 .show {
-    display: inline-block;
+    visibility: visible;
     opacity: 1;
 }
