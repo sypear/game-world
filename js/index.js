@@ -5,7 +5,7 @@ const introButton = document.getElementsByClassName("intro__button")[0];
 const game = document.getElementsByClassName("game")[0];
 
 // 타이틀 문구 타이핑
-const title = "Hello,\nGame World!";
+const title = "Hello,\nGame\nWorld!";
 
 let cnt = 0;
 let timer = 0;
