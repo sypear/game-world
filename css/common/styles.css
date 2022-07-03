@@ -50,6 +50,7 @@ img {
 
 .white-button {
     width: 60px;
+    max-width: 250px;
     margin-right: 10px;
     background-color: #FFF;
     border: 1px solid rgb(209,213,219);
@@ -101,4 +102,36 @@ img {
     -webkit-user-select: none;
     -khtml-user-select: none;
     user-select:none;
+}
+
+.color-red {
+    color: #F38181;
+}
+
+.color-blue {
+    color: #47B5FF;
+}
+
+.color-green {
+    color: #76BA99;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+    .white-button {
+        width: 150px;
+        height: 80px;
+        margin-right: 30px;
+        font-size: 18px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .white-button {
+        width: 200px;
+        height: 70px;
+        margin-right: 50px;
+        font-size: 23px;
+    }
 }
