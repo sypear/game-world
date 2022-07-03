@@ -44,7 +44,7 @@
     width: 37px;
     height: 37px;
     opacity: 0;
-    background-image: url('../resources/images/index/down-arrow.png');
+    background-image: url('./../img/index/down-arrow.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -124,11 +124,11 @@
 }
 
 .rock-paper-scissors .game__image:after {
-    background-image: url('../resources/images/index/rock-paper-scissors.png');
+    background-image: url('./../img/index/rock-paper-scissors.png');
 }
 
 .preparing .game__image:after {
-    background-image: url('../resources/images/index/question.png');
+    background-image: url('./../img/index/question.png');
 }
 
 .game__title {

@@ -58,11 +58,11 @@
 }
 
 .menu__bar-list-item--button#home-button {
-    background-image: url('../resources/images/common/home.png');
+    background-image: url('./../img/common/home.png');
 }
 
 .menu__bar-list-item--button#stop-button {
-    background-image: url('../resources/images/common/stop.png');
+    background-image: url('./../img/common/stop.png');
 }
 
 .board {
