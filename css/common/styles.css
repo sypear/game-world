@@ -48,6 +48,44 @@ img {
     display: block;
 }
 
+.white-button {
+    width: 60px;
+    margin-right: 10px;
+    background-color: #FFF;
+    border: 1px solid rgb(209,213,219);
+    border-radius: .5rem;
+    color: #3A3845;
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    padding: .75rem 1rem;
+    text-align: center;
+    text-decoration: none #D1D5DB solid;
+    text-decoration-thickness: auto;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.white-button:hover {
+    background-color: rgb(249,250,251);
+}
+
+.white-button:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.white-button:focus-visible {
+    box-shadow: none;
+}
+
+.white-button:last-child {
+    margin-right: 0;
+}
+
 .sr-only {
     position: absolute;
     z-index: -100;
@@ -63,9 +101,4 @@ img {
     -webkit-user-select: none;
     -khtml-user-select: none;
     user-select:none;
-}
-
-.show {
-    visibility: visible;
-    opacity: 1;
 }
