@@ -55,18 +55,34 @@
 
             <div class="board__item player-item">
                 <div class="board__button-wrapper">
-                    <button type="button" class="board__button" id="scissors-button">
+                    <button type="button" class="white-button" id="scissors-button">
                         가위
                     </button>
-                    <button type="button" class="board__button" id="rock-button">
+                    <button type="button" class="white-button" id="rock-button">
                         바위
                     </button>
-                    <button type="button" class="board__button" id="paper-button">
+                    <button type="button" class="white-button" id="paper-button">
                         보
                     </button>
                 </div>
             </div>
         </main>
+
+        <div class="modal modal__layer">
+            <div class="modal__content">
+                <h1 class="modal__content-title">
+                    사용자 승리! 축하합니다
+                </h1>
+        
+                <p class="modal__content-close">
+                    <span id="time-remain"></span>초 뒤 자동으로 닫힙니다.
+                </p>
+        
+                <button class="white-button modal__content-close-button" type="button">
+                    닫기
+                </button>
+            </div>
+        </div>
     </div>
 
     <script src="./js/game-rps.js"></script>
