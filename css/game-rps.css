@@ -15,7 +15,7 @@
 
 .menu__bar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: flex-end;
     width: 85%;
     height: 10vh;
@@ -30,6 +30,11 @@
 
 .menu__bar-score::before {
     content: '🥇';
+}
+
+.menu__bar-life {
+    font-size: 17px;
+    color: #FFF;
 }
 
 .menu__bar-list {
@@ -163,23 +168,49 @@
 }
 
 .modal__content-title--result {
-    font-size: 27px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
+.modal__content-title--result-life {
+    position: fixed;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -4%);
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0;
+}
+
+@keyframes blinkingEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal__content-title--score {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
 .modal__content-title--desc {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .modal__content-close {
-    font-size: 16px;
+    font-size: 13px;
     margin-bottom: 25px;
 }
 
 .modal__content-close-button {
     width: 100%;
     padding: 8px;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 .show {
@@ -189,6 +220,11 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) {
+    .menu_bar,
+    .board {
+        max-width: 768px;
+    }
+
     .menu__bar-score {
         font-size: 20px;
     }
@@ -202,8 +238,8 @@
         height: 28px;
     }
 
-    .board {
-        max-width: 768px;
+    .menu__bar-life {
+        font-size: 22px;
     }
 
     .board__score {
@@ -218,31 +254,40 @@
 
     .modal__content {
         width: 50%;
-        max-width: 384px;
         padding: 40px;
     }
 
     .modal__content-title {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
     
     .modal__content-title--result {
-        font-size: 34px;
-        margin-bottom: 25px;
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .modal__content-title--result-life {
+        font-size: 17px;
     }
     
+    .modal__content-title--score {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
     .modal__content-title--desc {
-        font-size: 27px;
+        font-size: 19px;
     }
     
     .modal__content-close {
-        font-size: 21px;
+        font-size: 17px;
+        margin-bottom: 30px;
     }
     
     .modal__content-close-button {
         height: auto;
-        padding: 12px;
-        font-size: 20px;
+        padding: 8px;
+        font-size: 18px;
     }
 }
 
@@ -251,6 +296,10 @@
     .menu__bar,
     .board {
         max-width: 1200px;
+    }
+
+    .menu__bar-life {
+        font-size: 24px;
     }
 
     .board__score {
@@ -264,7 +313,7 @@
     }
 
     .modal__content {
-        width: 40%;
+        width: 50%;
         max-width: 600px;
     }
 }
