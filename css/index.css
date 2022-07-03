@@ -55,7 +55,7 @@
     cursor: pointer;
 }
 
-.game {
+#game {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,7 +161,7 @@
         height: 47px;
     }
 
-    .game {
+    #game {
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-between;
@@ -201,7 +201,7 @@
         height: 57px;
     }
 
-    .game {
+    #game {
         padding: 200px 50px;
         max-width: 1000px;
     }
