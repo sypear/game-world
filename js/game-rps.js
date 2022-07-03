@@ -4,7 +4,6 @@
 const pcImage = document.getElementById("pc-image");
 
 let timer = 0;
-let selection = ["scissors", "rock", "paper"];
 let lastPcSelection = "";
 let pcSelection = "";
 
@@ -21,7 +20,21 @@ function changePcSelection() {
     }
 
     // 화면 이미지 변경
-    pcImage.style.backgroundImage = `url(../resources/images/game-rps/${selection[pcSelection]}.png)`;
+    switch (pcSelection) {
+        case 0:
+            pcImage.src = '../resources/images/game-rps/scissors.png';
+            break;
+
+        case 1:
+            pcImage.src = '../resources/images/game-rps/rock.png';
+            break;
+
+        case 2:
+            pcImage.src = '../resources/images/game-rps/paper.png';
+            break;
+
+        default:
+    }
 }
 
 // 난수 생성 함수
@@ -57,11 +70,11 @@ function rockPaperSissors(playerSelection) {
     // Interval 정지
     clearInterval(timer);
 
-    // 대진 결과 판단 (사용자 패 : -1, 무 : 0, 사용자 승 : 1)
+    // 대진 결과 판단 (사용자 패 : 0, 무 : 1, 사용자 승 : 2)
     let result = checkMatchResult(playerSelection, pcSelection);
 
     // 대진 결과 화면에 출력
-    showMatchResult(result);
+    showMatchResult(result, playerSelection, pcSelection);
 
     // 화면에 모달 창 출력
     modal.classList.add("show");
@@ -75,11 +88,11 @@ function checkMatchResult(player, pc) {
     let result = player - pc;
 
     if (result === 0) {                              // 무승부인 경우
-        return 0;
-    } else if (result === -2 || result === 1) {       // 사용자가 승리한 경우
         return 1;
+    } else if (result === -2 || result === 1) {       // 사용자가 승리한 경우
+        return 2;
     } else if (result === -1 || result === 2) {       // 사용자가 패배한 경우
-        return -1;
+        return 0;
     }
 }
 
@@ -95,37 +108,34 @@ let bestScore = 0;
 let playerScore = 0;
 let pcScore = 0;
 
-function showMatchResult(result) {
+function showMatchResult(result, player, pc) {
     // 화면에 점수 갱신
-    if (result !== 0) {
+    if (result !== 1) {
         calculateScore(result);
     }
 
     // 대진 결과 대입
-    if (result === 1) {
-        modalTitle.innerHTML = `
-            <h1>WIN</h1>
-            축하합니다!
-        `;
-    } else if (result === 0) {
-        modalTitle.innerHTML = `
-            <h1>DRAW</h1>
-            아쉬워요!
-        `;
-    } else if (result === -1) {
-        modalTitle.innerHTML = `
-            <h1>LOSE</h1>
-            패배!
-        `;
-    }
+    let resultList = ["패배", "무승부", "승리"];
+    let rpsList = ["✌", "✊", "✋"];
+
+    modalTitle.innerHTML = `
+        <h1 class="modal__content-title--result">
+            ${resultList[result]}
+        </h1>
+        <p class="modal__content-title--desc">
+            PC : ${rpsList[pc]}<br />
+            Player : ${rpsList[player]}
+        </p>
+    `;
 }
 
 // 점수 계산 후 화면에 갱신하는 함수
 function calculateScore(result) {
-    if (result === 1) {
+    if (result === 2) {
         playerScore += 10;
         playerScoreItem.innerText = playerScore;
-    } else if (result === -1) {
+    } else if (result === 0) {
+        console.log('밍?');
         pcScore += 10;
         pcScoreItem.innerText = pcScore;
     }
@@ -165,7 +175,7 @@ function restartGame() {
     // 결과 모달 출력 타이머 종료
     clearInterval(closeTimer);
 
-    // 결가 모달 time 초기화
+    // 결과 모달 time 초기화
     time = 5;
 
     // 컴퓨터의 마지막 선택 값 재설정
@@ -179,7 +189,7 @@ function restartGame() {
 window.onload = function() {
     timer = setInterval(changePcSelection, 300);
 
-    bestScoreItem.innerText = bestScore;
+    // bestScoreItem.innerText = bestScore;
     playerScoreItem.innerText = playerScore;
     pcScoreItem.innerText = pcScore;
 }
