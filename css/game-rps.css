@@ -7,75 +7,102 @@
     background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
 }
 
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__bar {
+    display: flex;
+    justify-content: space-between;;
+    align-items: flex-end;
+    width: 85%;
+    height: 10vh;
+    padding-bottom: 10px;
+}
+
+.menu__bar-score {
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.menu__bar-score::before {
+    content: '🥇';
+}
+
+.menu__bar-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__bar-list-item {
+    margin-right: 10px;
+}
+
+.menu__bar-list-item:last-child {
+    margin-right: 0;
+}
+
+.menu__bar-list-item--button {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.menu__bar-list-item--button.home-button {
+    background-image: url('../resources/images/common/home.png');
+}
+
+.menu__bar-list-item--button.stop-button {
+    background-image: url('../resources/images/common/stop.png');
+}
+
 .board {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 85%;
-    height: 90%;
+    height: 80%;
     letter-spacing: -0.04em;
     border-radius: 5px;
     background-color: #FFF;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
-.board__menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 8%;
-}
-
-.board__menu-timer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-right: 15px;
-    font-weight: 700;
-    color: #3A3845;
-}
-
-.board__menu-timer::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 1px;
-    background-image: url('../resources/images/game-rps/time.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.board__menu-home {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-left: 15px;
-    background-image: url('../resources/images/common/home.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
 .board__score {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
-    height: 8%;
-    margin-bottom: 10px;
-    font-size: 14px;
+    height: 13%;
+    padding-bottom: 15px;
+    font-weight: 700;
+    font-size: 16px;
     color: #3A3845;
 }
 
-.board__score-pc::after {
-    display: inline-block;
-    content: '|';
-    margin-right: 5px;
+.board__score-item:first-child,
+.board__score-item:last-child {
+    flex-basis: 100%;
+}
+
+.board__score-item.pc {
+    padding-right: 3%;
+    text-align: right;
+}
+
+.board__score-item.player {
+    padding-left: 3%;
+    text-align: left;
 }
 
 .board__item {
@@ -94,8 +121,8 @@
 .board__image {
     content: '';
     width: 100%;
-    height: 290px;
-    min-height: 190px;
+    height: 320px;
+    min-height: 220px;
     background-image: url('../resources/images/game-rps/scissors.png');
     background-position: center center;
     background-size: contain;
@@ -108,7 +135,7 @@
     background-color: #FFFFFF;
     border: 1px solid rgb(209,213,219);
     border-radius: .5rem;
-    color: #111827;
+    color: #3A3845;
     font-size: .875rem;
     font-weight: 600;
     line-height: 1.25rem;
