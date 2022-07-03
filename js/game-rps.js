@@ -154,7 +154,7 @@ function showMatchResult(result, player, pc) {
     // 모달에 대진 결과 대입
     if (playerLife > 0) {
         let colorList = ["color-red", "color-green", "color-blue"];
-        let lifeList = ["❤️-1", "", "❤️+1"]
+        let heartList = ["./../img/common/broken-heart.png", "", "./../img/common/heart.png"]
         let resultList = ["패배", "무승부", "승리"];
         let rpsList = ["✌", "✊", "✋"];
 
@@ -162,7 +162,9 @@ function showMatchResult(result, player, pc) {
             <h1 class="modal__content-title--result ${colorList[result]}">
                 ${resultList[result]}!<br />
             </h1>
-            <span class="modal__content-title--result-life">${lifeList[result]}</span>
+            <figure class="modal__content-title--result-life">
+                <img class="modal__content-title--result-life-img" src="${heartList[result]}" onerror="this.style.display='none'" />
+            </figure>
             <p class="modal__content-title--desc">
                 PC : ${rpsList[pc]}<br />
                 Player : ${rpsList[player]}
