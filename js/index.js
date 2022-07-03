@@ -2,7 +2,7 @@
 
 const introTitle = document.getElementsByClassName("intro__title")[0];
 const introButton = document.getElementsByClassName("intro__button")[0];
-const game = document.getElementsByClassName("game")[0];
+const game = document.getElementById("game");
 
 // 타이틀 문구 타이핑
 const title = "Hello,\nGame\nWorld!";
