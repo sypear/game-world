@@ -39,8 +39,8 @@
 .intro__button {
     position: absolute;
     left: 50%;
-    bottom: 5%;
-    transform: translate(-50%);
+    bottom: 8%;
+    transform: translate(-50%, 8%);
     width: 37px;
     height: 37px;
     opacity: 0;
