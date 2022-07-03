@@ -22,15 +22,18 @@ function changePcSelection() {
     // 화면 이미지 변경
     switch (pcSelection) {
         case 0:
-            pcImage.src = '../resources/images/game-rps/scissors.png';
+            pcImage.src = "./../resources/images/game-rps/scissors.png";
+            pcImage.alt = "컴퓨터 선택: 가위";
             break;
 
         case 1:
-            pcImage.src = '../resources/images/game-rps/rock.png';
+            pcImage.src = "./../resources/images/game-rps/rock.png";
+            pcImage.alt = "컴퓨터 선택: 바위";
             break;
 
         case 2:
-            pcImage.src = '../resources/images/game-rps/paper.png';
+            pcImage.src = "./../resources/images/game-rps/paper.png";
+            pcImage.alt = "컴퓨터 선택: 보";
             break;
 
         default:
