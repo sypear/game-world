@@ -140,6 +140,11 @@
     font-size: 17px;
 }
 
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* Tablet */
 @media screen and (min-width: 768px) {
     .intro__title {
