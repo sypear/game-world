@@ -216,11 +216,33 @@
         min-height: 250px;
     }
 
-    .white-button {
-        width: 150px;
-        height: 80px;
-        margin-right: 30px;
-        font-size: 18px;
+    .modal__content {
+        width: 50%;
+        max-width: 384px;
+        padding: 40px;
+    }
+
+    .modal__content-title {
+        margin-bottom: 25px;
+    }
+    
+    .modal__content-title--result {
+        font-size: 34px;
+        margin-bottom: 25px;
+    }
+    
+    .modal__content-title--desc {
+        font-size: 27px;
+    }
+    
+    .modal__content-close {
+        font-size: 21px;
+    }
+    
+    .modal__content-close-button {
+        height: auto;
+        padding: 12px;
+        font-size: 20px;
     }
 }
 
