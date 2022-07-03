@@ -154,7 +154,7 @@ function showMatchResult(result, player, pc) {
     // 모달에 대진 결과 대입
     if (playerLife > 0) {
         let colorList = ["color-red", "color-green", "color-blue"];
-        let heartList = ["../img/common/broken-heart.png", "", "../img/common/heart.png"]
+        let heartList = ["./img/common/broken-heart.png", "", "./img/common/heart.png"]
         let resultList = ["패배", "무승부", "승리"];
         let rpsList = ["✌", "✊", "✋"];
 
