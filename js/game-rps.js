@@ -60,6 +60,8 @@ buttonWrapper.addEventListener("click", function(e) {
         playerSelection = 1;
     } else if (e.target === papersButton) {
         playerSelection = 2;
+    } else {
+        return;
     }
 
     rockPaperSissors(playerSelection);
@@ -103,6 +105,7 @@ const modalTitle = document.getElementsByClassName("modal__content-title")[0];
 const bestScoreItem = document.getElementById("best-score");
 const playerScoreItem = document.getElementById("score-player");
 const pcScoreItem = document.getElementById("score-pc");
+const test = document.getElementsByClassName("modal__content-title--result")[0];
 
 let bestScore = 0;
 let playerScore = 0;
@@ -115,11 +118,12 @@ function showMatchResult(result, player, pc) {
     }
 
     // 대진 결과 대입
+    let colorList = ["color-red", "color-green", "color-blue"];
     let resultList = ["패배", "무승부", "승리"];
     let rpsList = ["✌", "✊", "✋"];
 
     modalTitle.innerHTML = `
-        <h1 class="modal__content-title--result">
+        <h1 class="modal__content-title--result ${colorList[result]}">
             ${resultList[result]}
         </h1>
         <p class="modal__content-title--desc">
@@ -135,7 +139,6 @@ function calculateScore(result) {
         playerScore += 10;
         playerScoreItem.innerText = playerScore;
     } else if (result === 0) {
-        console.log('밍?');
         pcScore += 10;
         pcScoreItem.innerText = pcScore;
     }
