@@ -167,8 +167,64 @@
     margin-right: 0;
 }
 
+/* Tablet */
+@media screen and (min-width: 768px) {
+    .menu__bar-score {
+        font-size: 20px;
+    }
+
+    .menu__bar-list-item {
+        margin-right: 15px;
+    }
+
+    .menu__bar-list-item--button {
+        width: 28px;
+        height: 28px;
+    }
+
+    .board {
+        max-width: 768px;
+    }
+
+    .board__score {
+        align-items: flex-end;
+        font-size: 25px;
+    }
+
+    .board__image {
+        height: 350px;
+        min-height: 250px;
+    }
+
+    .board__button {
+        width: 150px;
+        height: 80px;
+        margin-right: 30px;
+        font-size: 18px;
+    }
+}
+
+/* Desktop */
 @media screen and (min-width: 1024px) {
-    .game-board {
+    .menu__bar,
+    .board {
         max-width: 1200px;
+    }
+
+    .board__score {
+        margin-bottom: 15px;
+        font-size: 30px;
+    }
+
+    .board__image {
+        height: 380px;
+        min-height: 280px;
+    }
+
+    .board__button {
+        width: 200px;
+        height: 80px;
+        margin-right: 50px;
+        font-size: 23px;
     }
 }
