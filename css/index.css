@@ -127,6 +127,10 @@
     background-image: url('./../img/index/rock-paper-scissors.png');
 }
 
+.find-different-color .game__image:after {
+    background-image: url('./../img/index/find-different-color.png');
+}
+
 .preparing .game__image:after {
     background-image: url('./../img/index/question.png');
 }
@@ -173,7 +177,7 @@
     .game__wrapper {
         max-width: 300px;
         min-height: 351px;
-        margin-bottom: 0;
+        margin-bottom: 150px;
     }
 
     .game__title {
@@ -209,7 +213,7 @@
     .game__wrapper {
         width: 400px;
         max-width: 500px;
-        margin-bottom: 0;
+        margin-bottom: 200px;
     }
 
     .game__title {
