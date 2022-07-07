@@ -139,7 +139,7 @@
 .battle__pc-selection--image {
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 50px;
     object-fit: contain;
 }
 
@@ -268,6 +268,10 @@
 
     .battle__score {
         font-size: 20px;
+    }
+
+    .battle__pc-selection--image {
+        padding: 80px;
     }
 
     .modal__content {
