@@ -275,6 +275,9 @@ stopButton.addEventListener("click", function() {
     // 게임 종료 문구 준비
     showGameResult();
 
+    // Interval 정지
+    clearInterval(timer);
+
     // 게임 종료 (게임 설정 초기화)
     resetSettings();
 
