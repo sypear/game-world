@@ -79,7 +79,7 @@
     background-size: contain;
 }
 
-.colors {
+.battle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,13 +90,13 @@
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
-.colors::after {
+.battle::after {
     content: '';
     display: block;
     padding-bottom: 100%;
 }
 
-.colors__game {
+.battle__board {
     width: 90%;
     height: 90%;
     border: 1px solid lightblue;
