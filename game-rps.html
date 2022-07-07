@@ -15,66 +15,59 @@
 </head>
 <body>
     <div id="container" class="no-drag">
-        <header class="menu">
-            <nav class="menu__bar">
-                <!-- <div class="menu__bar-score"> -->
-                    <!-- Best Score : <span id="best-score"></span> -->
-                <!-- </div> -->
+        <div class="board">
+            <header class="menu">
+                <nav class="menu__nav">
+                    <div class="menu-show-state menu__nav-life">
+                        <strong id="player-life">3</strong>
+                    </div>
+                    <div class="menu__nav-stop">
+                        <button type="button" class="menu__nav-stop--button" id="stop-button">
+                            <span class="sr-only">게임 종료</span>
+                        </button>
+                    </div>
+                    <div class="menu__nav-home">
+                        <a href="./index.html#game" class="menu__nav-home--button" id="home-button">
+                            <span class="sr-only">메인 페이지로 이동</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
 
-                <div class="menu__bar-life">
-                    <strong id="player-life"></strong>
+            <main class="battle">
+                <div class="battle__board">
+                    <div class="battle__score">
+                        <p class="battle__score-item pc">
+                            PC : <strong id="score-pc"></strong>
+                        </p>
+                        <span>
+                            VS
+                        </span>
+                        <p class="battle__score-item player">
+                            Player : <strong id="score-player"></strong>
+                        </p>
+                    </div>
+
+                    <div class="battle__pc-selection">
+                            <img src="./img/game-rps/scissors.png" alt="컴퓨터 선택: 가위" class="battle__pc-selection--image" id="pc-image" />
+                    </div>
+
+                    <div class="battle__button-wrapper">
+                        <button type="button" class="white-button" id="scissors-button">
+                            가위
+                        </button>
+                        <button type="button" class="white-button" id="rock-button">
+                            바위
+                        </button>
+                        <button type="button" class="white-button" id="paper-button">
+                            보
+                        </button>
+                    </div>
                 </div>
+            </main>
+        </div>
 
-                <ul class="menu__bar-list">
-                <li class="menu__bar-list-item">
-                    <a href="./index.html#game" class="menu__bar-list-item--button" id="home-button">
-                        <span class="sr-only">메인 페이지로 이동</span>
-                    </a>
-                </li>
-                <!-- <li class="menu__bar-list-item">
-                    <button type="button" class="menu__bar-list-item--button" id="stop-button">
-                        <span class="sr-only">게임 중지</span>
-                    </button>
-                </li> -->
-                </ul>
-            </nav>
-        </header>
-
-        <main class="board">
-            <div class="board__score">
-                <p class="board__score-item pc">
-                    PC : <strong id="score-pc"></strong>
-                </p>
-                <span>
-                    VS
-                </span>
-                <p class="board__score-item player">
-                    Player : <strong id="score-player"></strong>
-                </p>
-            </div>
-
-            <div class="board__item pc-item">
-                <figure>
-                    <img src="./img/game-rps/scissors.png" alt="컴퓨터 선택: 가위" class="board__image" id="pc-image" />
-                </figure>
-            </div>
-
-            <div class="board__item player-item">
-                <div class="board__button-wrapper">
-                    <button type="button" class="white-button" id="scissors-button">
-                        가위
-                    </button>
-                    <button type="button" class="white-button" id="rock-button">
-                        바위
-                    </button>
-                    <button type="button" class="white-button" id="paper-button">
-                        보
-                    </button>
-                </div>
-            </div>
-        </main>
-
-        <div class="modal modal__layer">
+        <div class="modal modal-layer">
             <div class="modal__content">
                 <div class="modal__content-title">
                 </div>
