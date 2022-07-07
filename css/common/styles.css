@@ -49,17 +49,13 @@ img {
 }
 
 .white-button {
-    width: 60px;
-    max-width: 250px;
-    margin-right: 10px;
-    background-color: #FFF;
+    background-color: #FFFFFF;
     border: 1px solid rgb(209,213,219);
     border-radius: .5rem;
-    color: #3A3845;
-    font-size: .875rem;
+    box-sizing: border-box;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.25rem;
-    padding: .75rem 1rem;
     text-align: center;
     text-decoration: none #D1D5DB solid;
     text-decoration-thickness: auto;
@@ -81,10 +77,6 @@ img {
 
 .white-button:focus-visible {
     box-shadow: none;
-}
-
-.white-button:last-child {
-    margin-right: 0;
 }
 
 .sr-only {
@@ -118,20 +110,8 @@ img {
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-    .white-button {
-        width: 150px;
-        height: 80px;
-        margin-right: 30px;
-        font-size: 18px;
-    }
 }
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
-    .white-button {
-        width: 200px;
-        height: 70px;
-        margin-right: 50px;
-        font-size: 23px;
-    }
 }
