@@ -36,26 +36,38 @@
 
 .menu__nav > * {
     display: flex;
+    justify-content: flex-end;
     align-items: flex-end;
-    width: 50px;
-    height: auto;
 }
 
-.menu__nav-home {
+.menu__nav-stage {
+    margin-right: 10px;
+}
+
+.menu__nav-home,
+.menu__nav-stop {
     justify-content: flex-end;
+}
+
+.menu__nav-stop {
     flex-grow: 1;
 }
 
-.menu-show-state::before {
+.menu-show-state::before,
+.menu__nav-stop--button,
+.menu__nav-home--button {
     content: '';
     display: block;
     width: 20px;
     height: 20px;
-    margin-right: 3px;
     margin-bottom: 2px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.menu-show-state::before {
+    margin-right: 3px;
 }
 
 .menu__nav-time.menu-show-state::before {
@@ -66,17 +78,14 @@
     background-image: url('./../img/game-fdc/stage.png');
 }
 
+.menu__nav-stop--button {
+    margin-right: 10px;
+    background-color: transparent;
+    background-image: url('./../img/common/stop.png');
+}
+
 .menu__nav-home--button {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 20px;
-    margin-bottom: 2px;
-    background: transparent;
     background-image: url('./../img/common/home.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .battle {
