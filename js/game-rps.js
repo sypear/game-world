@@ -59,7 +59,7 @@ function getRandom() {
 }
 
 // 사용자가 가위 바위 보 버튼 클릭 시 결과 출력 및 점수 추가
-const buttonWrapper = document.getElementsByClassName("battle__button-wrapper")[0];
+const buttonWrapper = document.getElementsByClassName("game__button-wrapper")[0];
 const scissorsButton = document.getElementById("scissors-button");
 const rockButton = document.getElementById("rock-button");
 const papersButton = document.getElementById("paper-button");
