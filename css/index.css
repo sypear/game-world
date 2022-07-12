@@ -123,11 +123,11 @@
     transition: background-image 250ms ease-in;
 }
 
-.rock-paper-scissors .game__image:after {
+#rock-paper-scissors .game__image:after {
     background-image: url('./../img/index/rock-paper-scissors.png');
 }
 
-.find-different-color .game__image:after {
+#find-different-color .game__image:after {
     background-image: url('./../img/index/find-different-color.png');
 }
 

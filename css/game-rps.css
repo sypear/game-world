@@ -76,7 +76,7 @@
     background-image: url('./../img/common/home.png');
 }
 
-.battle {
+.game {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,13 +87,13 @@
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
-.battle::after {
+.game::after {
     content: '';
     display: block;
     padding-bottom: 100%;
 }
 
-.battle__board {
+.game__board {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,7 +101,7 @@
     height: 90%;
 }
 
-.battle__score {
+.game__score {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,22 +112,22 @@
     color: #3A3845;
 }
 
-.battle__score-item:first-child,
-.battle__score-item:last-child {
+.game__score-item:first-child,
+.game__score-item:last-child {
     flex-basis: 100%;
 }
 
-.battle__score-item.pc {
+.game__score-item.pc {
     padding-right: 3%;
     text-align: right;
 }
 
-.battle__score-item.player {
+.game__score-item.player {
     padding-left: 3%;
     text-align: left;
 }
 
-.battle__pc-selection {
+.game__pc-selection {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,14 +136,14 @@
     height: 80%;
 }
 
-.battle__pc-selection--image {
+.game__pc-selection--image {
     width: 100%;
     height: 100%;
     padding: 50px;
     object-fit: contain;
 }
 
-.battle__button-wrapper {
+.game__button-wrapper {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -266,11 +266,11 @@
         margin-right: 5px;
     }
 
-    .battle__score {
+    .game__score {
         font-size: 20px;
     }
 
-    .battle__pc-selection--image {
+    .game__pc-selection--image {
         padding: 80px;
     }
 
