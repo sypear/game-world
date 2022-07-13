@@ -34,12 +34,22 @@
 
 .menu__nav > * {
     display: flex;
-    justify-content: flex-end;
     align-items: flex-end;
 }
 
 .menu__nav-time {
+    justify-content: flex-start;
+    width: 45px;
     margin-right: 10px;
+}
+
+.menu__nav-stage {
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#player-stage {
+    padding-left: 3px;
 }
 
 .menu__nav-home,
@@ -47,11 +57,7 @@
     justify-content: flex-end;
 }
 
-.menu__nav-stop {
-    flex-grow: 1;
-}
-
-.menu-state::before,
+.menu__nav-time::before,
 .menu__nav-stop--button,
 .menu__nav-home--button {
     content: '';
@@ -64,16 +70,9 @@
     background-size: contain;
 }
 
-.menu-state::before {
+.menu__nav-time::before {
     margin-right: 3px;
-}
-
-.menu__nav-time.menu-state::before {
     background-image: url('./../img/game-fdc/time.png');
-}
-
-.menu__nav-stage.menu-state::before {
-    background-image: url('./../img/game-fdc/stage.png');
 }
 
 .menu__nav-stop--button {
@@ -163,31 +162,6 @@
 .modal__content-title--result {
     font-size: 21px;
     margin-bottom: 10px;
-}
-
-.modal__content-title--result-life {
-    position: fixed;
-    top: 6%;
-    left: 50%;
-    transform: translate(-50%, -6%);
-    font-weight: 700;
-    font-size: 14px;
-    opacity: 0;
-}
-
-.modal__content-title--result-life-img {
-    width: 14px;
-    height: 14px;
-}
-
-@keyframes blinkingEffect {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }
 
 .modal__content-title--stage {
