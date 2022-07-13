@@ -4,7 +4,7 @@ let time = 15; // 남은 시간
 let paletteRow = 2; // 팔레트 행
 let paletteSize = paletteRow ** 2; // 팔레트 아이템 전체 갯수 (행의 제곱)
 let targetIndex = 0;
-let targetOpacity = 0.6; // 타겟 아이템 opacity
+let targetOpacity = 0.4; // 타겟 아이템 opacity
 let color = {}; // 팔레트 아이템 색상 (red, green, blue 값을 저장하는 object)
 
 let timer = 0; // 타이머
