@@ -153,6 +153,13 @@ function selectWrongItem() {
         time = time - 3;
     }
 
+    // 오답 선택 시 애니메이션
+    palette.classList.add("vibration");
+
+    setTimeout(function() {
+        palette.classList.remove("vibration");
+    }, 400);
+
     // 화면 갱신
     playerTime.innerHTML = time;
 }
