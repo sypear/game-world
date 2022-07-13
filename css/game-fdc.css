@@ -186,8 +186,60 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) {
+    .menu__nav {
+        font-size: 21px;
+    }
+
+    .menu__nav-time {
+        width: 55px;
+    }
+
+    .menu__nav-time::before,
+    .menu__nav-stop--button,
+    .menu__nav-home--button {
+        width: 24px;
+        height: 24px;
+    }
+
+    .menu__nav-time::before {
+        margin-right: 5px;
+    }
+
+    .palette-item {
+        border-radius: 6px;
+        padding: 4px;
+    }
+
+    .modal__content {
+        width: 50%;
+    }
+    
+    .modal__content-title--result {
+        margin-bottom: 15px;
+    }
+    
+    .modal__content-title--stage {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .modal__content-title--desc {
+        font-size: 18px;
+    }
+    
+    .modal__content-close-button {
+        font-size: 17px;
+    }
 }
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
+    .palette-item {
+        border-radius: 7px;
+        padding: 5px;
+    }
+
+    .modal__content {
+        width: 20%;
+    }
 }
