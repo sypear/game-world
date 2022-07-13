@@ -1,5 +1,10 @@
 "use strict";
 
+// 스크롤 위치를 이전 위치로 복원하지 않도록 설정 (https://blog.coderifleman.com/2016/11/28/scroll-restoration-property-of-history/)
+if (history.scrollRestoration) {
+    window.history.scrollRestoration = "manual";
+}
+
 const introTitle = document.getElementsByClassName("intro__title")[0];
 const introButton = document.getElementsByClassName("intro__button")[0];
 const game = document.getElementById("game");
