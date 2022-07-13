@@ -5,9 +5,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: #3A1C71;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+    background-color: #000;
 }
 
 .board {
@@ -40,7 +38,7 @@
     align-items: flex-end;
 }
 
-.menu__nav-stage {
+.menu__nav-time {
     margin-right: 10px;
 }
 
@@ -53,7 +51,7 @@
     flex-grow: 1;
 }
 
-.menu-show-state::before,
+.menu-state::before,
 .menu__nav-stop--button,
 .menu__nav-home--button {
     content: '';
@@ -66,15 +64,15 @@
     background-size: contain;
 }
 
-.menu-show-state::before {
+.menu-state::before {
     margin-right: 3px;
 }
 
-.menu__nav-time.menu-show-state::before {
+.menu__nav-time.menu-state::before {
     background-image: url('./../img/game-fdc/time.png');
 }
 
-.menu__nav-stage.menu-show-state::before {
+.menu__nav-stage.menu-state::before {
     background-image: url('./../img/game-fdc/stage.png');
 }
 
@@ -95,7 +93,7 @@
     width: 100%;
     max-height: 646px;
     border-radius: 5px;
-    background-color: #FFF;
+    background-color: #000;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
 }
 
@@ -110,15 +108,13 @@
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    padding: 3px;
 }
 
 .palette-item {
-    width: 50%;
-    height: 50%;
-    border: 3px solid #FFF;
+    padding: 3px;
     border-radius: 10px;
-    background-color: #D76D77;
+    background-clip: content-box;
+    cursor: pointer;
 }
 
 .show {
