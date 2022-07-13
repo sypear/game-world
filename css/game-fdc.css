@@ -54,6 +54,7 @@
 
 .menu__nav-home {
     justify-content: flex-end;
+    width: 45px;
 }
 
 .menu__nav-time::before,
@@ -198,7 +199,8 @@
         font-size: 21px;
     }
 
-    .menu__nav-time {
+    .menu__nav-time,
+    .menu__nav-home {
         width: 55px;
     }
 
