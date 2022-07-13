@@ -277,7 +277,6 @@
     }
     
     .modal__content-title--result {
-        font-size: 21px;
         margin-bottom: 15px;
     }
 
@@ -312,6 +311,6 @@
 /* Desktop */
 @media screen and (min-width: 1024px) {
     .modal__content {
-        width: 30%;
+        width: 20%;
     }
 }
