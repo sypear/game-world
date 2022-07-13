@@ -52,13 +52,11 @@
     padding-left: 3px;
 }
 
-.menu__nav-home,
-.menu__nav-stop {
+.menu__nav-home {
     justify-content: flex-end;
 }
 
 .menu__nav-time::before,
-.menu__nav-stop--button,
 .menu__nav-home--button {
     content: '';
     display: block;
@@ -73,12 +71,6 @@
 .menu__nav-time::before {
     margin-right: 3px;
     background-image: url('./../img/game-fdc/time.png');
-}
-
-.menu__nav-stop--button {
-    margin-right: 10px;
-    background-color: transparent;
-    background-image: url('./../img/common/stop.png');
 }
 
 .menu__nav-home--button {
@@ -211,7 +203,6 @@
     }
 
     .menu__nav-time::before,
-    .menu__nav-stop--button,
     .menu__nav-home--button {
         width: 24px;
         height: 24px;
