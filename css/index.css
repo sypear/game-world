@@ -14,7 +14,6 @@
     line-height: 1.166666666666667;
     color: #FFF;
     text-align: center;
-    transition: line-height 500ms ease-in;
 }
 
 .intro__title:after {
