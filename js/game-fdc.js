@@ -187,10 +187,12 @@ function showGameResult() {
         resultText = "색깔 찾기 능력이 대단해요!"
     } else if (stage > 15 && stage <= 20) {
         resultText = "엄청난 눈을 가지셨네요!"
-    } else if (stage > 20 && stage <= 30) {
-        resultText = "다른 색깔 찾기의<br/>신이시군요!"
-    }  else if (stage > 30) {
+    } else if (stage > 20 && stage <= 25) {
+        resultText = "다른 색깔 찾기의<br/>달인이시군요!"
+    } else if (stage > 26 && stage <= 30) {
         resultText = "여기까지 온 당신,<br/>혹시 '절대색감'이신가요?"
+    } else if (stage > 30) {
+        resultText = "탈인간의 능력을 가지셨습니다!!! 🙀"
     }
 
     modalTitle.innerHTML = `
