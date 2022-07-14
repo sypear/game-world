@@ -81,10 +81,6 @@
                 box-shadow 250ms ease-in;
 }
 
-.game__wrapper:last-child {
-    margin-bottom: 0;
-}
-
 .game__wrapper:hover {
     bottom: 5px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -126,6 +122,10 @@
 
 #find-different-color .game__image:after {
     background-image: url('./../img/index/find-different-color.png');
+}
+
+#card-matching .game__image:after {
+    background-image: url('./../img/index/card-matching.png');
 }
 
 .preparing .game__image:after {
