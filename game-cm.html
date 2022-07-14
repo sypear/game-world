@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game World : 카드 짝 맞추기</title>
+    <meta name="description" content="Vanilla JS를 이용한 Mini Game Project - 카드 짝 맞추기">
+    <link rel="icon" type="image/x-ico" href="./resources/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/common/styles.css">
+    <link rel="stylesheet" href="./css/game-cm.css">
+</head>
+<body>
+    <div id="container" class="no-drag">
+        <div class="board">
+            <header class="menu">
+                <nav class="menu__nav">
+                    <div class="menu__nav-time">
+                        <strong id="player-time">60</strong>
+                    </div>
+                    <div class="menu__nav-stage">
+                        STAGE<strong id="player-stage">1</strong>
+                    </div>
+                    <div class="menu__nav-home">
+                        <a href="./index.html#game" class="menu__nav-home--button" id="home-button">
+                            <span class="sr-only">메인 페이지로 이동</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="game">
+                <div class="game__board">
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="./js/game-cm.js"></script>
+</body>
+</html>
