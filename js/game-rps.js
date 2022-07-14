@@ -8,6 +8,8 @@ let count = 0;
 let winCount = 0;
 let drawCount = 0;
 let loseCount = 0;
+let playerScore = 0;
+let pcScore = 0;
 
 // 게임 시작 시 기회 3번으로 시작
 const playerLifeItem = document.getElementById("player-life");
@@ -131,9 +133,6 @@ const modalTitle = document.getElementsByClassName("modal__content-title")[0];
 
 const playerScoreItem = document.getElementById("score-player");
 const pcScoreItem = document.getElementById("score-pc");
-
-let playerScore = 0;
-let pcScore = 0;
 
 function showMatchResult(result, player, pc) {
     // 화면에 점수 갱신
