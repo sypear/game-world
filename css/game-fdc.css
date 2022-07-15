@@ -71,7 +71,7 @@
 
 .menu__nav-time::before {
     margin-right: 3px;
-    background-image: url('./../img/game-fdc/time.png');
+    background-image: url('./../img/common/time.png');
 }
 
 .menu__nav-home--button {
