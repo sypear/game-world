@@ -50,6 +50,7 @@ function initScreen() {
     playerTime.innerHTML = time;
     playerStage.innerHTML = stage;
     playerTime.classList.remove("blink");
+    void playerTime.offsetWidth;
     playerTime.classList.add("blink");
 }
 
