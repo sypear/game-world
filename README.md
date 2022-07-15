@@ -25,4 +25,10 @@
 # 🎨 다른 색깔 찾기
 <p align="center"><img src="https://user-images.githubusercontent.com/105365737/178927010-fdf8c456-1986-41d6-b249-8aa2df3a79fc.gif"></p>
 
-* 여러 개의 색 중 다른 색 찾기
+* 여러 개의 색 중 다른 색을 찾는 게임
+<br/>
+
+# 🃏 카드 짝 맞추기
+<p align="center"><img src="https://user-images.githubusercontent.com/105365737/179197277-169b8295-f8b2-4d55-bb57-368d6b131bad.gif"></p>
+
+* 카드를 뒤집어 같은 그림의 카드를 맞추는 게임
