@@ -71,7 +71,7 @@
 
 .menu__nav-time::before {
     margin-right: 3px;
-    background-image: url('./../img/game-fdc/time.png');
+    background-image: url('./../img/common/time.png');
 }
 
 .menu__nav-home--button {
@@ -143,23 +143,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
-    width: 50%;
-    height: 50%;
+    width: 230px;
+    height: 230px;
     background-image: url('../img/game-cm/clear.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center center;
     animation: movingEffect 130ms 10 alternate;
-}
-
-@keyframes movingEffect {
-    from {
-        top: 50%;
-    }
-
-    to {
-        top: 45%;
-    }
 }
 
 .white-button {
@@ -229,6 +219,26 @@
     display: block;
 }
 
+@keyframes blinkingEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes movingEffect {
+    from {
+        top: 50%;
+    }
+
+    to {
+        top: 45%;
+    }
+}
+
 /* Tablet */
 @media screen and (min-width: 768px) {
     .menu__nav {
@@ -249,9 +259,49 @@
     .menu__nav-time::before {
         margin-right: 5px;
     }
+
+    .card__back,
+    .card__front {
+        border: 3px solid #000;
+        border-radius: 6px;
+    }
+
+    .stage-clear {
+        width: 330px;
+        height: 330px;
+    }
+
+    .modal__content {
+        width: 50%;
+    }
+    
+    .modal__content-title--result {
+        margin-bottom: 15px;
+    }
+    
+    .modal__content-title--stage {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .modal__content-title--desc {
+        font-size: 18px;
+    }
+    
+    .modal__content-close-button {
+        font-size: 17px;
+    }
 }
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
-    
+    .card__back,
+    .card__front {
+        border: 4px solid #000;
+        border-radius: 7px;
+    }
+
+    .modal__content {
+        width: 20%;
+    }
 }
