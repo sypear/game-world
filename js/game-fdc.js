@@ -95,9 +95,9 @@ function settingPlatteItem() {
 // 랜덤 색상 생성
 function createColor(color) {
     // 너무 어둡거나 너무 밝은 색이 나오지 않도록 범위를 100 ~ 200으로 지정
-    color.red = Math.floor(Math.random() * 100) + 100;
-    color.green = Math.floor(Math.random() * 100) + 100;
-    color.blue = Math.floor(Math.random() * 100) + 100;
+    color.red = Math.floor(Math.random() * 101) + 100;
+    color.green = Math.floor(Math.random() * 101) + 100;
+    color.blue = Math.floor(Math.random() * 101) + 100;
 
     return color;
 }
