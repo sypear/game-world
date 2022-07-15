@@ -297,7 +297,7 @@ function checkClear() {
 const cards = document.getElementsByClassName("card");
 
 function cardsClose(indexArr) {
-    // 1초 동안 카드 보여준 후 닫고, 카드 뒤집기가 가능하도록 설정
+    // 0.8초 동안 카드 보여준 후 닫고, 카드 뒤집기가 가능하도록 설정
     setTimeout(() => {
         for (let i = 0; i < indexArr.length; i++) {
             cardBack[indexArr[i]].style.transform = "rotateY(0deg)";
@@ -305,7 +305,7 @@ function cardsClose(indexArr) {
         }
 
         isFlip = true;
-    }, 1000);
+    }, 800);
 }
 
 // 게임 종료 시 출력 문구
