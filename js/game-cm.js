@@ -27,6 +27,7 @@ function startGame() {
 // 게임 재시작
 function restartGame() {
     initGame();
+    initScreen();
     startGame();
 }
 
@@ -41,10 +42,15 @@ function initGame() {
     time = 60;
     isFlip = false;
     cardDeck = [];
+}
 
+// 게임 화면 초기화
+function initScreen() {
     gameBoard.innerHTML = '';
     playerTime.innerHTML = time;
     playerStage.innerHTML = stage;
+    playerTime.classList.remove("blink");
+    playerTime.classList.add("blink");
 }
 
 // 스테이지 클리어
@@ -62,16 +68,10 @@ function clearStage() {
     cardDeck = [];
 
     stageClearImg.classList.add("show");
-
     // 3초 후 다음 스테이지 시작
     setTimeout(() => {
         stageClearImg.classList.remove("show");
-
-        // 화면 새로 갱신
-        gameBoard.innerHTML = '';
-        playerTime.innerHTML = time;
-        playerStage.innerHTML = stage;
-
+        initScreen();
         startGame();
     }, 3000);
 }

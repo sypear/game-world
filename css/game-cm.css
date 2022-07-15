@@ -215,6 +215,10 @@
     font-size: 14px;
 }
 
+.blink {
+    animation: blinkingEffect 200ms 5 alternate;
+}
+
 .show {
     display: block;
 }
