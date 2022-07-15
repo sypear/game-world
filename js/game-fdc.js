@@ -1,3 +1,5 @@
+"use strict";
+
 // 게임 상태 관리에 필요한 변수 초기화
 let stage = 1; // 게임 스테이지
 let time = 15; // 남은 시간
@@ -27,10 +29,9 @@ function startGame() {
 
             // 결과 모달 출력
             showGameResult();
-            modal.classList.add("show");
 
             // 게임 설정 값 초기화
-            resetSettings();
+            initGame();
         }
     }, 1000);
 }
@@ -165,7 +166,7 @@ function selectWrongItem() {
 }
 
 // 설정 값 초기화
-function resetSettings() {
+function initGame() {
     stage = 1;
     time = 15;
     paletteRow = 2;
@@ -206,6 +207,8 @@ function showGameResult() {
         ${resultText}
     </p>
     `;
+
+    modal.classList.add("show");
 }
 
 // 모달 창 닫기

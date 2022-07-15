@@ -101,11 +101,8 @@ function rockPaperSissors(playerSelection) {
 
     // 기회가 없으면 게임 종료
     if (playerLife === 0) {
-        resetSettings();
+        initGame();
     }
-
-    // 결과 모달 출력
-    modal.classList.add("show");
 
     // 모달 종료 시 게임 재시작
     restartGameAfterExitModal();
@@ -179,6 +176,8 @@ function showRoundResult(result, player, pc) {
     const resultLifeItem = document.getElementsByClassName("modal__content-title--result-life")[0];
 
     resultLifeItem.style.animation = "blinkingEffect 400ms 6 alternate";
+
+    modal.classList.add("show");
 }
 
 // 게임 종료 시 출력 문구
@@ -200,6 +199,8 @@ function showGameResult() {
         있었습니다.
     </p>
     `;
+
+    modal.classList.add("show");
 }
 
 // 점수 계산 후 화면에 갱신하는 함수
@@ -279,17 +280,14 @@ stopButton.addEventListener("click", function() {
     clearInterval(timer);
 
     // 게임 종료 (게임 설정 초기화)
-    resetSettings();
-
-    // 결과 모달 출력
-    modal.classList.add("show");
+    initGame();
 
     // 모달 종료 시 게임 재시작
     restartGameAfterExitModal();
 });
 
 // 게임에 필요한 설정 값 초기화 함수
-function resetSettings() {
+function initGame() {
     speed = 300;
     playerLife = 3;
     playerScore = 0;
