@@ -134,10 +134,11 @@ function updateSettings() {
         paletteSize = paletteRow ** 2;
     }
 
-    // opacity 값 0.03씩 증가 (0.94 이상으로는 증가하지 않음)
-    if (targetOpacity < 0.94) {
+    console.log(targetOpacity);
+    // opacity 값 0.02씩 증가 (0.94 이상으로는 증가하지 않음)
+    if (targetOpacity <= 0.92) {
         // 2진수로 실수 계산 시 오차가 생기기 때문에 소수점 셋째자리에서 반올림하도록 처리
-        targetOpacity = +(targetOpacity + 0.03).toFixed(2);
+        targetOpacity = +(targetOpacity + 0.02).toFixed(2);
     }
 
     // 화면 갱신
