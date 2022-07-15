@@ -1,11 +1,18 @@
+"use strict";
+
 let cardImg = ['bear', 'camel', 'cat', 'chick', 'chicken', 'cockroach', 'cow', 'elephant', 'fish', 'frog', 'horse', 'kitty', 'koala', 'monkey', 'penguin', 'pig', 'porcupine', 'puffer-fish', 'rabbit', 'rat-head', 'shell', 'snail', 'snake', 'squid', 'tiger', 'whale'];
+
+let stage = 1; // 게임 스테이지
+let time = 60; // 남은 시간
+let timer = 0;
 
 let boardRow = 6;
 let boardSize = boardRow * 4;
-let isFlip = false; // 카드 뒤집기 가능 여부
-
 let cardDeck = [];
 
+let isFlip = false; // 카드 뒤집기 가능 여부
+
+// 게임 시작
 function startGame() {
     // 카드 덱 생성
     cardDeck = makeCardDeck();
@@ -15,6 +22,70 @@ function startGame() {
 
     // 최초 1회 전체 카드 보여줌
     showCardDeck();
+}
+
+// 게임 재시작
+function restartGame() {
+    initGame();
+    startGame();
+}
+
+// 게임 종료
+function stopGame() {
+    showGameResult();
+}
+
+// 게임 설정 초기화
+function initGame() {
+    clearInterval(timer);
+
+    stage = 1;
+    time = 60;
+    isFlip = false;
+    cardDeck = [];
+
+    playerTime.innerHTML = time;
+    playerStage.innerHTML = stage;
+
+    gameBoard.innerHTML = '';
+}
+
+// 스테이지 클리어
+const board = document.getElementsByClassName("board")[0];
+const stageClearImg = document.getElementsByClassName("stage-clear")[0];
+
+function clearStage() {
+    clearInterval(timer);
+    
+    time = 60 - (stage * 5); // 남은 시간 초기화 (스테이지 진행 시 마다 5초씩 감소)
+    stage++; // 스테이지 값 1 추가
+    cardDeck = [];
+
+    // 화면에 시간, 스테이지 값 새로 갱신
+    playerTime.innerHTML = time;
+    playerStage.innerHTML = stage;
+
+    // 스테이지 클리어 이미지 출력
+    stageClearImg.classList.add("show");
+
+    // 3초 후 다음 스테이지 시작
+    setTimeout(() => {
+        stageClearImg.classList.remove("show");
+        gameBoard.innerHTML = '';
+
+        startGame();
+    }, 3000);
+}
+
+// 게임 타이머 시작
+function startTimer() {
+    timer = setInterval(() => {
+        playerTime.innerHTML = --time;
+
+        if (time === 0) {
+            stopGame();
+        }
+    }, 1000);
 }
 
 // 카드 덱 생성
@@ -102,7 +173,7 @@ function showCardDeck() {
     })
 }
 
-// 전체 카드 뒤집는 함수
+// 전체 카드 숨기는 함수
 function hideCardDeck() {
     let hideCardPromise = new Promise((resolve, reject) => {
         for (let i = 0; i < cardDeck.length; i++) {
@@ -117,6 +188,9 @@ function hideCardDeck() {
         // hideCardPromise가 성공인 경우 실행할 코드
         setTimeout(() => {
             isFlip = true;
+
+            // 게임 타이머 시작
+            startTimer();
         }, 100);
     })
 }
@@ -131,19 +205,167 @@ gameBoard.addEventListener("click", function(e) {
         let clickCardId = e.target.parentNode.dataset.id;
 
         if (cardDeck[clickCardId].isOpen === false) {
-            // e.target == 카드 뒷면
-            e.target.style.transform = "rotateY(180deg)";
-            e.target.nextSibling.nextSibling.style.transform = "rotateY(0deg)";
-            cardDeck[clickCardId].isOpen = true;
-        } else {
-            // e.target == 카드 앞면
-            e.target.style.transform = "rotateY(-180deg)";
-            e.target.previousSibling.previousSibling.style.transform = "rotateY(0deg)";
-            cardDeck[clickCardId].isOpen = false;
+            openCard(clickCardId);
         }
     }
 });
 
+// 카드 오픈
+function openCard(id) {
+    // 화면에서 앞면으로 보이도록 스타일 조정
+    cardBack[id].style.transform = "rotateY(180deg)";
+    cardFront[id].style.transform = "rotateY(0deg)";
+
+    // 선택한 카드의 open 여부를 true로 변경
+    cardDeck[id].isOpen = true;
+
+    // 선택한 카드가 첫 번째로 선택한 카드인지, 두 번째로 선택한 카드인지 판별하기 위해 오픈한 카드의 index를 저장하는 배열 요청
+    let openCardIndexArr = getOpenCardArr(id);
+
+    // 두 번째 선택인 경우 카드 일치 여부 확인
+    // 일치 여부 확인 전까지 카드 뒤집기 불가
+    if (openCardIndexArr.length === 2) {
+        isFlip = false;
+        
+        checkCardMatch(openCardIndexArr);
+    }
+}
+
+// 선택한 카드가 첫 번째로 뒤집은 카드인지, 두 번째로 뒤집은 카드인지 체크
+function getOpenCardArr(id) {
+    let openCardIndexArr = [];
+
+    // 반복문을 돌면서 isOpen: true이고 isMatch: false인 카드의 인덱스를 배열에 저장
+    cardDeck.forEach((element, i) => {
+        if (element.isOpen === false || element.isMatch === true) {
+            return;
+        }
+
+        openCardIndexArr.push(i);
+    });
+
+    return openCardIndexArr;
+}
+
+// 카드 일치 여부 확인
+function checkCardMatch(indexArr) {
+    let firstCard = cardDeck[indexArr[0]];
+    let secondCard = cardDeck[indexArr[1]];
+
+    if (firstCard.card === secondCard.card) {
+        // 카드 일치 처리
+        firstCard.isMatch = true;
+        secondCard.isMatch = true;
+
+        cardsMatch(indexArr);
+    } else {
+        // 카드 불일치 처리
+        firstCard.isOpen = false;
+        secondCard.isOpen = false;
+
+        cardsClose(indexArr);
+    }
+}
+
+// 카드 일치 처리
+function cardsMatch(indexArr) {
+    // 카드를 전부 찾았으면 스테이지 클리어
+    if (checkClear() === true) {
+        clearStage();
+        return;
+    }
+
+    // 바로 클릭 시 에러가 나는 경우가 있어 0.1초 후 부터 카드 뒤집기가 가능하도록 설정
+    setTimeout(() => {
+        isFlip = true;
+    }, 100);
+}
+
+// 카드를 전부 찾았는지 확인하는 함수
+function checkClear() {
+    // 카드를 전부 찾았는지 확인
+    let isClear = true;
+
+    cardDeck.forEach((element) => {
+        // 반복문을 돌면서 isMatch: false인 요소가 있다면 isClear에 false 값을 저장 후 반복문 탈출
+        if (element.isMatch === false) {
+            isClear = false;
+            return;
+        }
+    });
+
+    return isClear;
+}
+
+// 카드 불일치 처리
+const cards = document.getElementsByClassName("card");
+
+function cardsClose(indexArr) {
+    // 0.5초 동안 카드 보여준 후 닫고, 카드 뒤집기가 가능하도록 설정
+    setTimeout(() => {
+        for (let i = 0; i < indexArr.length; i++) {
+            cardBack[indexArr[i]].style.transform = "rotateY(0deg)";
+            cardFront[indexArr[i]].style.transform = "rotateY(-180deg)";
+        }
+
+        isFlip = true;
+    }, 1000);
+}
+
+// 게임 종료 시 출력 문구
+const modal = document.getElementsByClassName("modal")[0];
+
+function showGameResult() {
+    let resultText = "";
+
+    if (stage > 0 && stage <= 2) {
+        resultText = "한 번 더 해볼까요?"
+    } else if (stage > 3 && stage <= 5) {
+        resultText = "조금만 더 해봐요!"
+    } else if (stage > 5 && stage <= 7) {
+        resultText = "짝 맞추기 실력이 대단해요!"
+    } else if (stage > 7 && stage <= 9) {
+        resultText = "기억력이 엄청나시네요!"
+    } else if (stage > 9 && stage <= 11) {
+        resultText = "당신의 머리, 어쩌면 컴퓨터보다 좋을지도.."
+    } else if (stage > 11 && stage <= 13) {
+        resultText = "여기까지 온 당신,<br/>혹시 '포토그래픽 메모리' 소유자신가요?"
+    } else if (stage > 14) {
+        resultText = "탈인간의 능력을 가지셨습니다!!! 🙀"
+    }
+
+    modalTitle.innerHTML = `
+    <h1 class="modal__content-title--result color-red">
+        게임 종료!
+    </h1>
+    <span class="modal__content-title--stage">
+        기록 : <strong>STAGE ${stage}</strong>
+    </span>
+    <p class="modal__content-title--desc">
+        ${resultText}
+    </p>
+    `;
+
+    modal.classList.add("show");
+}
+
+// 모달창 닫으면 게임 재시작
+const modalTitle = document.getElementsByClassName("modal__content-title")[0];
+const modalCloseButton = document.getElementsByClassName("modal__content-close-button")[0];
+
+modal.addEventListener('click', function(e) {
+    if (e.target === modal || e.target === modalCloseButton) {
+        modal.classList.remove("show");
+        restartGame();
+    }
+});
+
+// 기본 값 세팅 및 다른 색깔 찾기 게임 자동 시작
+const playerTime = document.getElementById("player-time");
+const playerStage = document.getElementById("player-stage");
 window.onload = function() {
+    playerTime.innerHTML = time;
+    playerStage.innerHTML = stage;
+
     startGame();
 }
