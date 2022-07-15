@@ -2,6 +2,7 @@ let cardImg = ['bear', 'camel', 'cat', 'chick', 'chicken', 'cockroach', 'cow', '
 
 let boardRow = 6;
 let boardSize = boardRow * 4;
+let isFlip = false; // 카드 뒤집기 가능 여부
 
 let cardDeck = [];
 
@@ -12,7 +13,7 @@ function startGame() {
     // 카드 화면에 세팅
     settingCardDeck();
 
-    // 전체 카드 보여줌
+    // 최초 1회 전체 카드 보여줌
     showCardDeck();
 }
 
@@ -43,7 +44,7 @@ function makeCardDeck() {
 
     // 섞은 값으로 카드 세팅
     for (let i = 0; i < boardSize; i++) {
-        cardDeck.push({card: cardImg[randomNumberArr[i]], isOpen: false});
+        cardDeck.push({card: cardImg[randomNumberArr[i]], isOpen: false, isMatch: false});
     }
 
     return cardDeck;
@@ -81,28 +82,51 @@ function settingCardDeck() {
 // 전체 카드 보여주는 함수
 function showCardDeck() {
     let cnt = 0;
+    
+    let showCardPromise = new Promise((resolve, reject) => {
+        let showCardTimer = setInterval(() => {
+            cardBack[cnt].style.transform = "rotateY(180deg)"
+            cardFront[cnt++].style.transform = "rotateY(0deg)"
 
-    let showCardTimer = setInterval(function() {
-        cardBack[cnt].style.transform = "rotateY(180deg)"
-        cardFront[cnt++].style.transform = "rotateY(0deg)"
+            if (cnt === cardDeck.length) {
+                clearInterval(showCardTimer);
 
-        if (cnt === cardDeck.length) {
-            clearInterval(showCardTimer);
+                resolve();
+            }
+        }, 200);
+    });
 
-            setTimeout(function() {
-                for (let i = 0; i < cardDeck.length; i++) {
-                    cardBack[i].style.transform = "rotateY(0deg)"
-                    cardFront[i].style.transform = "rotateY(-180deg)"
-                }
-            }, 5000);
+    showCardPromise.then(() => {
+        // showCardPromise 성공인 경우 실행할 코드
+        setTimeout(hideCardDeck, 5000);
+    })
+}
 
-            return;
+// 전체 카드 뒤집는 함수
+function hideCardDeck() {
+    let hideCardPromise = new Promise((resolve, reject) => {
+        for (let i = 0; i < cardDeck.length; i++) {
+            cardBack[i].style.transform = "rotateY(0deg)"
+            cardFront[i].style.transform = "rotateY(-180deg)"
         }
-    }, 200);
+
+        resolve();
+    });
+
+    hideCardPromise.then(() => {
+        // hideCardPromise가 성공인 경우 실행할 코드
+        setTimeout(() => {
+            isFlip = true;
+        }, 100);
+    })
 }
 
 // 카드 클릭 이벤트
 gameBoard.addEventListener("click", function(e) {
+    if (isFlip === false) {
+        return;
+    }
+
     if (e.target.parentNode.className === "card") {
         let clickCardId = e.target.parentNode.dataset.id;
 
