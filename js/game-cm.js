@@ -37,17 +37,14 @@ function stopGame() {
 
 // 게임 설정 초기화
 function initGame() {
-    clearInterval(timer);
-
     stage = 1;
     time = 60;
     isFlip = false;
     cardDeck = [];
 
+    gameBoard.innerHTML = '';
     playerTime.innerHTML = time;
     playerStage.innerHTML = stage;
-
-    gameBoard.innerHTML = '';
 }
 
 // 스테이지 클리어
@@ -56,22 +53,24 @@ const stageClearImg = document.getElementsByClassName("stage-clear")[0];
 
 function clearStage() {
     clearInterval(timer);
-    
-    time = 60 - (stage * 5); // 남은 시간 초기화 (스테이지 진행 시 마다 5초씩 감소)
+
+    // 20초 이하로는 빨라지지 않음
+    if (stage <= 8) {
+        time = 60 - (stage * 5); // 남은 시간 초기화 (스테이지 진행 시 마다 5초씩 감소)
+    }
     stage++; // 스테이지 값 1 추가
     cardDeck = [];
 
-    // 화면에 시간, 스테이지 값 새로 갱신
-    playerTime.innerHTML = time;
-    playerStage.innerHTML = stage;
-
-    // 스테이지 클리어 이미지 출력
     stageClearImg.classList.add("show");
 
     // 3초 후 다음 스테이지 시작
     setTimeout(() => {
         stageClearImg.classList.remove("show");
+
+        // 화면 새로 갱신
         gameBoard.innerHTML = '';
+        playerTime.innerHTML = time;
+        playerStage.innerHTML = stage;
 
         startGame();
     }, 3000);
@@ -83,6 +82,7 @@ function startTimer() {
         playerTime.innerHTML = --time;
 
         if (time === 0) {
+            clearInterval(timer);
             stopGame();
         }
     }, 1000);
@@ -301,7 +301,7 @@ function checkClear() {
 const cards = document.getElementsByClassName("card");
 
 function cardsClose(indexArr) {
-    // 0.5초 동안 카드 보여준 후 닫고, 카드 뒤집기가 가능하도록 설정
+    // 1초 동안 카드 보여준 후 닫고, 카드 뒤집기가 가능하도록 설정
     setTimeout(() => {
         for (let i = 0; i < indexArr.length; i++) {
             cardBack[indexArr[i]].style.transform = "rotateY(0deg)";
@@ -320,17 +320,17 @@ function showGameResult() {
 
     if (stage > 0 && stage <= 2) {
         resultText = "한 번 더 해볼까요?"
-    } else if (stage > 3 && stage <= 5) {
+    } else if (stage > 2 && stage <= 4) {
         resultText = "조금만 더 해봐요!"
-    } else if (stage > 5 && stage <= 7) {
+    } else if (stage > 4 && stage <= 5) {
         resultText = "짝 맞추기 실력이 대단해요!"
-    } else if (stage > 7 && stage <= 9) {
+    } else if (stage > 5 && stage <= 7) {
         resultText = "기억력이 엄청나시네요!"
+    } else if (stage > 7 && stage <= 9) {
+        resultText = "당신의 두뇌,<br/>어쩌면<br/>컴퓨터보다 좋을지도.."
     } else if (stage > 9 && stage <= 11) {
-        resultText = "당신의 머리, 어쩌면 컴퓨터보다 좋을지도.."
-    } else if (stage > 11 && stage <= 13) {
-        resultText = "여기까지 온 당신,<br/>혹시 '포토그래픽 메모리' 소유자신가요?"
-    } else if (stage > 14) {
+        resultText = "여기까지 온 당신,<br/>혹시 '포토그래픽 메모리'<br/>소유자신가요?"
+    } else if (stage > 11) {
         resultText = "탈인간의 능력을 가지셨습니다!!! 🙀"
     }
 
