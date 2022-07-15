@@ -105,8 +105,8 @@
 }
 
 .palette-item {
-    padding: 3px;
-    border-radius: 5px;
+    padding: 2px;
+    border-radius: 3px;
     background-clip: content-box;
     cursor: pointer;
 }
@@ -215,8 +215,8 @@
     }
 
     .palette-item {
-        border-radius: 6px;
-        padding: 4px;
+        border-radius: 4px;
+        padding: 3px;
     }
 
     .modal__content {
@@ -254,8 +254,8 @@
 /* Desktop */
 @media screen and (min-width: 1024px) {
     .palette-item {
-        border-radius: 7px;
-        padding: 5px;
+        border-radius: 5px;
+        padding: 4px;
     }
 
     .modal__content {
