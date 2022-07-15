@@ -115,12 +115,12 @@ palette.addEventListener("click", function(e) {
 
 // 정답 처리
 function selectTargetItem() {
-    changeSettingsForSelectTargetItem();
+    updateSettings();
     createPlatteItem();
 }
 
 // 사용자가 정답을 맞춘 경우 설정 값 변경
-function changeSettingsForSelectTargetItem() {
+function updateSettings() {
     // 화면 초기화
     palette.innerHTML = '';
     
