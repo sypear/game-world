@@ -26,6 +26,7 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/105365737/178927010-fdf8c456-1986-41d6-b249-8aa2df3a79fc.gif"></p>
 
 * 여러 개의 색 중 다른 색을 찾는 게임
+* [다른 색깔 찾기 게임 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%8B%A4%EB%A5%B8-%EC%83%89%EA%B9%94-%EC%B0%BE%EA%B8%B0)
 <br/>
 
 # 🃏 카드 짝 맞추기
