@@ -113,6 +113,58 @@ img {
     color: #76BA99;
 }
 
+.select {
+    animation: selectionEffect 400ms 2 alternate;
+}
+
+.blink {
+    animation: blinkingEffect 200ms 5 alternate;
+}
+
+.vibration {
+    animation: vibrationEffect 100ms infinite;
+}
+
+@keyframes selectionEffect {
+    from {
+        background-color: #FFF;
+    }
+
+    to {
+        background-color: #DEA5A4;
+    }
+}
+
+@keyframes blinkingEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes movingEffect {
+    from {
+        top: 50%;
+    }
+
+    to {
+        top: 45%;
+    }
+}
+
+@keyframes vibrationEffect {
+    from {
+        left: 0;
+    }
+    
+    to {
+        left: 2px;
+    }
+}
+
 /* Tablet */
 @media screen and (min-width: 768px) {
 }

@@ -151,11 +151,6 @@
     animation: movingEffect 130ms 10 alternate;
 }
 
-.white-button {
-    width: 25%;
-    padding: 5px;
-}
-
 .modal {
     display: none;
     letter-spacing: -0.04em;
@@ -214,32 +209,13 @@
     font-size: 14px;
 }
 
-.blink {
-    animation: blinkingEffect 200ms 5 alternate;
+.white-button {
+    width: 25%;
+    padding: 5px;
 }
 
 .show {
     display: block;
-}
-
-@keyframes blinkingEffect {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes movingEffect {
-    from {
-        top: 50%;
-    }
-
-    to {
-        top: 45%;
-    }
 }
 
 /* Tablet */
