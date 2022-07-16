@@ -145,7 +145,7 @@ function settingCardDeck() {
                 <div class="card__back"></div>
                 <div class="card__front"></div>
             </div>
-        `
+        `;
 
         cardFront[i].style.backgroundImage = `url('img/game-cm/card-pack/${cardDeck[i].card}.png')`;
     }
@@ -157,8 +157,8 @@ function showCardDeck() {
     
     let showCardPromise = new Promise((resolve, reject) => {
         let showCardTimer = setInterval(() => {
-            cardBack[cnt].style.transform = "rotateY(180deg)"
-            cardFront[cnt++].style.transform = "rotateY(0deg)"
+            cardBack[cnt].style.transform = "rotateY(180deg)";
+            cardFront[cnt++].style.transform = "rotateY(0deg)";
 
             if (cnt === cardDeck.length) {
                 clearInterval(showCardTimer);
@@ -177,8 +177,8 @@ function showCardDeck() {
 // 전체 카드 숨기는 함수
 function hideCardDeck() {
     for (let i = 0; i < cardDeck.length; i++) {
-        cardBack[i].style.transform = "rotateY(0deg)"
-        cardFront[i].style.transform = "rotateY(-180deg)"
+        cardBack[i].style.transform = "rotateY(0deg)";
+        cardFront[i].style.transform = "rotateY(-180deg)";
     }
 
     // 전체 카드 숨기고 0.1초 뒤 isFlip = true, 게임 타이머 시작
@@ -315,19 +315,19 @@ function showGameResult() {
     let resultText = "";
 
     if (stage > 0 && stage <= 2) {
-        resultText = "한 번 더 해볼까요?"
+        resultText = "한 번 더 해볼까요?";
     } else if (stage > 2 && stage <= 4) {
-        resultText = "조금만 더 해봐요!"
+        resultText = "조금만 더 해봐요!";
     } else if (stage > 4 && stage <= 5) {
-        resultText = "짝 맞추기 실력이 대단해요!"
+        resultText = "짝 맞추기 실력이 대단해요!";
     } else if (stage > 5 && stage <= 7) {
-        resultText = "기억력이 엄청나시네요!"
+        resultText = "기억력이 엄청나시네요!";
     } else if (stage > 7 && stage <= 9) {
-        resultText = "당신의 두뇌,<br/>어쩌면<br/>컴퓨터보다 좋을지도.."
+        resultText = "당신의 두뇌,<br/>어쩌면<br/>컴퓨터보다 좋을지도..";
     } else if (stage > 9 && stage <= 11) {
-        resultText = "여기까지 온 당신,<br/>혹시 '포토그래픽 메모리'<br/>소유자신가요?"
+        resultText = "여기까지 온 당신,<br/>혹시 '포토그래픽 메모리'<br/>소유자신가요?";
     } else if (stage > 11) {
-        resultText = "탈인간의 능력을 가지셨습니다!!! 🙀"
+        resultText = "탈인간의 능력을 가지셨습니다!!! 🙀";
     }
 
     modalTitle.innerHTML = `
