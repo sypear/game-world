@@ -15,7 +15,7 @@ let isFlip = false; // 카드 뒤집기 가능 여부
 // 게임 시작
 function startGame() {
     // 카드 덱 생성
-    cardDeck = makeCardDeck();
+    makeCardDeck();
 
     // 카드 화면에 세팅
     settingCardDeck();
@@ -69,12 +69,13 @@ function clearStage() {
     cardDeck = [];
 
     stageClearImg.classList.add("show");
-    // 3초 후 다음 스테이지 시작
+
+    // 2초 후 다음 스테이지 시작
     setTimeout(() => {
         stageClearImg.classList.remove("show");
         initScreen();
         startGame();
-    }, 3000);
+    }, 2000);
 }
 
 // 게임 타이머 시작
@@ -357,6 +358,7 @@ modal.addEventListener('click', function(e) {
 // 기본 값 세팅 및 다른 색깔 찾기 게임 자동 시작
 const playerTime = document.getElementById("player-time");
 const playerStage = document.getElementById("player-stage");
+
 window.onload = function() {
     playerTime.innerHTML = time;
     playerStage.innerHTML = stage;
