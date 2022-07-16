@@ -219,7 +219,7 @@ function openCard(id) {
     let openCardIndexArr = getOpenCardArr(id);
 
     // 두 번째 선택인 경우 카드 일치 여부 확인
-    // 일치 여부 확인 전까지 카드 뒤집기 불가
+    // 일치 여부 확인 전까지 카드 뒤집기 불가(isFlip = false)
     if (openCardIndexArr.length === 2) {
         isFlip = false;
         
@@ -227,7 +227,7 @@ function openCard(id) {
     }
 }
 
-// 선택한 카드가 첫 번째로 뒤집은 카드인지, 두 번째로 뒤집은 카드인지 체크
+// 오픈한 카드의 index를 저장하는 배열 반환
 function getOpenCardArr(id) {
     let openCardIndexArr = [];
 
@@ -294,8 +294,6 @@ function checkClear() {
 }
 
 // 카드 불일치 처리
-const cards = document.getElementsByClassName("card");
-
 function closeCard(indexArr) {
     // 0.8초 동안 카드 보여준 후 닫고, 카드 뒤집기가 가능하도록 설정
     setTimeout(() => {
