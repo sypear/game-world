@@ -128,8 +128,8 @@
     background-image: url('./../img/index/card-matching.png');
 }
 
-.preparing .game__image:after {
-    background-image: url('./../img/index/question.png');
+#memory-test .game__image:after {
+    background-image: url('./../img/index/memory-test.png');
 }
 
 .game__title {
