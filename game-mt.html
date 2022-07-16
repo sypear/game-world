@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game World : 메모리 게임</title>
+    <meta name="description" content="Vanilla JS를 이용한 Mini Game Project - 메모리 게임">
+    <link rel="icon" type="image/x-ico" href="./resources/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/common/styles.css">
+    <link rel="stylesheet" href="./css/game-mt.css">
+</head>
+<body>
+    <div id="container" class="no-drag">
+        <div class="board">
+            <header class="menu">
+                <nav class="menu__nav">
+                    <div class="menu__nav-turn">
+                        <strong id="turn" aria-label="차례"></strong>
+                    </div>
+                    <div class="menu__nav-point">
+                        IQ :<strong id="point" aria-label="획득 점수"></strong>
+                    </div>
+                    <div class="menu__nav-home">
+                        <a href="./index.html#memory-test" class="menu__nav-home--button" id="home-button">
+                            <span class="sr-only">메인 페이지로 이동</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="game">
+                <div class="game__board">
+                    <div class="item" data-id="0"></div>
+                    <div class="item" data-id="1"></div>
+                    <div class="item" data-id="2"></div>
+                    <div class="item" data-id="3"></div>
+                    <div class="item" data-id="4"></div>
+                    <div class="item" data-id="5"></div>
+                    <div class="item" data-id="6"></div>
+                    <div class="item" data-id="7"></div>
+                    <div class="item" data-id="8"></div>
+                </div>
+            </main>
+
+            <div class="stage-clear"></div>
+        </div>
+
+        <div class="modal modal-layer">
+            <div class="modal__content">
+                <div class="modal__content-title">
+                </div>
+        
+                <button class="white-button modal__content-close-button" type="button">
+                    닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="./js/game-mt.js"></script>
+</body>
+</html>
