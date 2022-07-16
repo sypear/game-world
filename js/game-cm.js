@@ -1,16 +1,14 @@
 "use strict";
 
-let cardImg = ['bear', 'camel', 'cat', 'chick', 'chicken', 'cockroach', 'cow', 'dolphin', 'elephant', 'fish', 'frog', 'horse', 'kitty', 'koala', 'monkey', 'penguin', 'pig', 'porcupine', 'puffer-fish', 'rabbit', 'rat-head', 'shell', 'snail', 'snake', 'squid', 'tiger', 'whale'];
+const CARD_IMG = ['bear', 'camel', 'cat', 'chick', 'chicken', 'cockroach', 'cow', 'dolphin', 'elephant', 'fish', 'frog', 'horse', 'kitty', 'koala', 'monkey', 'penguin', 'pig', 'porcupine', 'puffer-fish', 'rabbit', 'rat-head', 'shell', 'snail', 'snake', 'squid', 'tiger', 'whale'];
+const BOARD_SIZE = 24;
 
 let stage = 1; // 게임 스테이지
 let time = 60; // 남은 시간
 let timer = 0;
-
-let boardRow = 6;
-let boardSize = boardRow * 4;
-let cardDeck = [];
-
 let isFlip = false; // 카드 뒤집기 가능 여부
+
+let cardDeck = [];
 
 // 게임 시작
 function startGame() {
@@ -95,7 +93,7 @@ function makeCardDeck() {
     // 이미지는 27개인데 필요한 카드는 12개로 고정되어 있기 때문에 27개의 이미지 중 랜덤으로 12개를 뽑도록 구현
     let randomNumberArr = [];
 
-    for (let i = 0; i < boardSize / 2; i++) {
+    for (let i = 0; i < BOARD_SIZE / 2; i++) {
         // 랜덤 값 뽑기
         let randomNumber = getRandom(27, 0);
 
@@ -116,8 +114,8 @@ function makeCardDeck() {
     shuffle(randomNumberArr);
 
     // 섞은 값으로 카드 세팅
-    for (let i = 0; i < boardSize; i++) {
-        cardDeck.push({card: cardImg[randomNumberArr[i]], isOpen: false, isMatch: false});
+    for (let i = 0; i < BOARD_SIZE; i++) {
+        cardDeck.push({card: CARD_IMG[randomNumberArr[i]], isOpen: false, isMatch: false});
     }
 
     return cardDeck;
@@ -139,7 +137,7 @@ const cardBack = document.getElementsByClassName("card__back");
 const cardFront = document.getElementsByClassName("card__front");
 
 function settingCardDeck() {
-    for (let i = 0; i < boardSize; i++) {
+    for (let i = 0; i < BOARD_SIZE; i++) {
         gameBoard.innerHTML = gameBoard.innerHTML +
         `
             <div class="card" data-id="${i}" data-card="${cardDeck[i].card}">

@@ -11,12 +11,7 @@ let loseCount = 0;
 let playerScore = 0;
 let pcScore = 0;
 
-// 게임 시작 시 기회 3번으로 시작
-const playerLifeItem = document.getElementById("player-life");
 let playerLife = 3;
-
-// PC의 가위, 바위, 보 선택을 위한 함수 (가위 : 0, 바위 : 1, 보 : 2)
-const pcImage = document.getElementById("pc-image");
 
 let timer = 0;
 let lastPcSelection = "";
@@ -299,6 +294,9 @@ function initGame() {
 }
 
 // 기본 값 세팅 및 가위바위보 게임 자동 시작
+const playerLifeItem = document.getElementById("player-life");
+const pcImage = document.getElementById("pc-image");
+
 window.onload = function() {
     timer = setInterval(changePcSelection, speed);
 
