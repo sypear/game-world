@@ -4,7 +4,7 @@ const BG_COLOR = "#DEA5A4";
 const COLOR_WHITE = "#FFF";
 
 let turn = "PC"; // 게임 차례
-let point = 0; // 사용자 획득 점수
+let point = 130; // 사용자 획득 점수
 let answerCount = 1; // 정답 갯수
 let answerArr = []; // 정답을 저장하는 배열
 let playerSelectionCount = 0; // 사용자 선택 횟수
@@ -189,15 +189,15 @@ function showGameResult() {
     if (point <= 20) {
         resultText = "한 눈 팔면 안돼요!";
     } else if (point > 20 && point <= 40) {
-        resultText = " ૮ฅ・ﻌ・აฅ<br/>댕댕이와 비슷한 IQ를 가지셨네요!";
+        resultText = " ૮ฅ・ﻌ・აฅ<br/><br/>댕댕이와 비슷한 IQ를<br/>가지셨네요!";
     } else if (point > 40 && point <= 60) {
-        resultText = "^   ^<br/>(◕ㅅ◕｡)<br/><br/>냥냥이와 비슷한 IQ를 가지셨네요!";
+        resultText = "^   ^<br/>(◕ㅅ◕｡)<br/><br/>냥냥이와 비슷한 IQ를<br/>가지셨네요!";
     } else if (point > 60 && point <= 80) {
-        resultText = "다..🐬..다..🐬..다..🐬..다...🐬...다다다..🐬...다다다...🌀🌀또🌀물보라를🌀일으켜🌀🌀<br/><br/>돌고래와 비슷한 IQ를 가지셨네요!";
+        resultText = "다..🐬..다..🐬..다..🐬..다...🐬...다다다..🐬...다다다...🌀🌀또🌀물보라를🌀일으켜🌀🌀<br/><br/>돌고래와 비슷한 IQ를<br/>가지셨네요!";
     } else if (point > 80 && point <= 120) {
-        resultText = "인간 평균의 IQ를 가지셨네요!<br/><br/>ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ";
+        resultText = "(ว˙∇˙)ง (ง˙∇˙)ว<br/><br/>인간 평균의 IQ를<br/>가지셨네요!";
     } else if (point > 120 && point <= 170) {
-        resultText = "ㄴ(°0°)ㄱ<br/>상상도 못한 정체<br/><br/>엄청난 기억력을 가지셨네요!";
+        resultText = "ㄴ(°0°)ㄱ<br/>상상도 못한 정체<br/><br/>엄청난 기억력을<br/>가지셨네요!";
     } else if (point > 170) {
         resultText = "(๑°ㅁ°๑)ﾉ<br/>어쩌면 당신의 지능,<br/>컴퓨터보다 좋을지도..";
     }
