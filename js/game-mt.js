@@ -1,0 +1,262 @@
+"use strict";
+
+const BG_COLOR = "#DEA5A4";
+const COLOR_WHITE = "#FFF";
+
+let turn = "PC"; // 게임 차례
+let point = 0; // 사용자 획득 점수
+let answerCount = 1; // 정답 갯수
+let answerArr = []; // 정답을 저장하는 배열
+let playerSelectionCount = 0; // 사용자 선택 횟수
+let isClick = false;
+
+// 게임 시작
+function startGame() {
+    // 랜덤으로 정답 만들기
+    createAnswer();
+    
+    // PC가 먼저 정답 선택
+    selectAnswerOnPC();
+}
+
+// 게임 재시작
+function restartGame() {
+    initGame();
+    initScreen();
+    startGame();
+}
+
+// 게임 종료
+function stopGame() {
+    showGameResult();
+}
+
+// 게임 설정 초기화
+function initGame() {
+    turn = "PC";
+    point = 0;
+    answerCount = 1;
+    answerArr = [];
+    playerSelectionCount = 0;
+}
+
+// 게임 화면 초기화
+function initScreen() {
+    changeClickFlag(false);
+    
+    turnText.innerHTML = turn;
+    pointText.innerHTML = point;
+}
+
+// 게임 턴 변경 후 화면 갱신
+function changeTurn(changeValue) {
+    turn = changeValue;
+    turnText.innerHTML = turn;
+
+    if (turn === "YOU") {
+        turnText.classList.remove("blink");
+        void turnText.offsetWidth;
+        turnText.classList.add("blink");
+    }
+
+    // 눌려있는 버튼이 있다면 하얀색 배경으로 변경
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].style.backgroundColor !== "rgb(255, 255, 255)") {
+            items[i].style.backgroundColor = COLOR_WHITE;
+        }
+    }
+}
+
+// 점수 추가 후 화면 갱신
+function addPoint(addValue) {
+    point += addValue;
+    pointText.innerHTML = point;
+}
+
+// 클릭 여부 변경
+function changeClickFlag(flagValue) {
+    let cursorStyle = "pointer";
+
+    isClick = flagValue;
+
+    if (isClick === false) {
+        cursorStyle = "auto";
+    }
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.cursor = cursorStyle;
+    }
+}
+
+// 정답 만들기
+function createAnswer() {
+    for (let i = 0; i < answerCount; i++) {
+        answerArr.push(getRandom(9, 0));
+    }
+    
+    return answerArr;
+}
+
+// PC가 정답 선택
+const items = document.getElementsByClassName("item");
+
+function selectAnswerOnPC() {
+    let cnt = 0;
+
+    let selectTimer = setInterval(() => {
+        if (cnt > 0) {
+            items[answerArr[cnt]].classList.remove("select");
+            void items[answerArr[cnt]].offsetWidth;
+        }
+        items[answerArr[cnt++]].classList.add("select");
+
+        if (cnt === answerCount) {
+            clearInterval(selectTimer);
+
+            let turnChangeTimer = setTimeout(() => {
+                for (let i = 0; i < answerArr.length; i++) {
+                    items[answerArr[i]].classList.remove("select");
+                }
+
+                changeClickFlag(true);
+                changeTurn("YOU");
+            }, 800);
+        }
+    }, 800);
+}
+
+// 난수 생성
+function getRandom(max, min) {
+    return parseInt(Math.random() * (max - min)) + min;
+}
+
+// 사용자 클릭 이벤트
+const gameBoard = document.getElementsByClassName("game__board")[0];
+
+gameBoard.addEventListener("click", function(e) {
+    // isClick 값이 false면 클릭 이벤트가 발생하지 않도록 함
+    if (isClick === false) {
+        return;
+    }
+
+    let targetId = parseInt(e.target.dataset.id);
+
+    checkCorrectAnswer(targetId);
+});
+
+function checkCorrectAnswer(targetId) {
+    // 사용자가 선택한 블록의 id와 정답 id가 일치하면 맞은 것으로 판단
+    if (targetId === answerArr[playerSelectionCount++]) {
+        // 사용자의 선택 횟수가 정답 횟수와 같아지면 전부 맞은 것으로 판단
+        if (playerSelectionCount === answerCount) {
+            clearStage();
+        }
+    } else {
+        stopGame();
+    }
+}
+
+// 스테이지 클리어
+const stageClearImg = document.getElementsByClassName("stage-clear")[0];
+
+function clearStage() {
+    // 설정값 재설정
+    answerCount++;
+    answerArr = [];
+    playerSelectionCount = 0;
+    addPoint(10); //점수 추가
+
+    // 클릭 이벤트가 발생하지 않도록 설정 및 커서 스타일 변경
+    changeClickFlag(false);
+
+    stageClearImg.classList.add("show");
+
+    // 2초 후 다음 스테이지 시작
+    setTimeout(() => {
+        stageClearImg.classList.remove("show");
+        changeTurn("PC"); // 턴 변경
+
+        startGame();
+    }, 2000);
+}
+
+// 게임 종료 시 출력 문구
+const modal = document.getElementsByClassName("modal")[0];
+
+function showGameResult() {
+    let resultText = "";
+
+    if (point <= 20) {
+        resultText = "한 눈 팔면 안돼요!";
+    } else if (point > 20 && point <= 40) {
+        resultText = " ૮ฅ・ﻌ・აฅ<br/>댕댕이와 비슷한 IQ를 가지셨네요!";
+    } else if (point > 40 && point <= 60) {
+        resultText = "^   ^<br/>(◕ㅅ◕｡)<br/><br/>냥냥이와 비슷한 IQ를 가지셨네요!";
+    } else if (point > 60 && point <= 80) {
+        resultText = "다..🐬..다..🐬..다..🐬..다...🐬...다다다..🐬...다다다...🌀🌀또🌀물보라를🌀일으켜🌀🌀<br/><br/>돌고래와 비슷한 IQ를 가지셨네요!";
+    } else if (point > 80 && point <= 120) {
+        resultText = "인간 평균의 IQ를 가지셨네요!<br/><br/>ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ";
+    } else if (point > 120 && point <= 170) {
+        resultText = "ㄴ(°0°)ㄱ<br/>상상도 못한 정체<br/><br/>엄청난 기억력을 가지셨네요!";
+    } else if (point > 170) {
+        resultText = "(๑°ㅁ°๑)ﾉ<br/>어쩌면 당신의 지능,<br/>컴퓨터보다 좋을지도..";
+    }
+
+    modalTitle.innerHTML = `
+    <h1 class="modal__content-title--result color-red">
+        게임 종료!
+    </h1>
+    <span class="modal__content-title--stage">
+        당신의 IQ : <strong>${point}</strong>
+    </span>
+    <p class="modal__content-title--desc">
+        ${resultText}
+    </p>
+    `;
+
+    modal.classList.add("show");
+}
+
+// 모달창 닫으면 게임 재시작
+const modalTitle = document.getElementsByClassName("modal__content-title")[0];
+const modalCloseButton = document.getElementsByClassName("modal__content-close-button")[0];
+
+modal.addEventListener('click', function(e) {
+    if (e.target === modal || e.target === modalCloseButton) {
+        modal.classList.remove("show");
+        restartGame();
+    }
+});
+
+// isClick이 ture인 경우에만 CSS hover와 비슷한 효과를 주기 위해 JS로 구현
+// 아이템 요소에 마우스 over 시
+gameBoard.addEventListener("mouseover", function(e) {
+    if (isClick === false) {
+        return;
+    }
+
+    if (e.target.classList.contains("item") === true) {
+        e.target.style.backgroundColor = BG_COLOR;
+    }
+});
+
+// 아이템 요소에 마우스 out 시
+gameBoard.addEventListener("mouseout", function(e) {
+    if (isClick === false) {
+        return;
+    }
+
+    if (e.target.classList.contains("item") === true) {
+        e.target.style.backgroundColor = COLOR_WHITE;
+    }
+});
+
+const turnText = document.getElementById("turn");
+const pointText = document.getElementById("point");
+
+window.onload = function() {
+    turnText.innerHTML = turn;
+    pointText.innerHTML = point;
+
+    startGame();
+}
