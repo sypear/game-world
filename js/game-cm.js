@@ -253,18 +253,18 @@ function checkCardMatch(indexArr) {
         firstCard.isMatch = true;
         secondCard.isMatch = true;
 
-        cardsMatch(indexArr);
+        matchCard(indexArr);
     } else {
         // 카드 불일치 처리
         firstCard.isOpen = false;
         secondCard.isOpen = false;
 
-        cardsClose(indexArr);
+        closeCard(indexArr);
     }
 }
 
 // 카드 일치 처리
-function cardsMatch(indexArr) {
+function matchCard(indexArr) {
     // 카드를 전부 찾았으면 스테이지 클리어
     if (checkClear() === true) {
         clearStage();
@@ -296,7 +296,7 @@ function checkClear() {
 // 카드 불일치 처리
 const cards = document.getElementsByClassName("card");
 
-function cardsClose(indexArr) {
+function closeCard(indexArr) {
     // 0.8초 동안 카드 보여준 후 닫고, 카드 뒤집기가 가능하도록 설정
     setTimeout(() => {
         for (let i = 0; i < indexArr.length; i++) {
