@@ -1,6 +1,6 @@
 "use strict";
 
-let cardImg = ['bear', 'camel', 'cat', 'chick', 'chicken', 'cockroach', 'cow', 'elephant', 'fish', 'frog', 'horse', 'kitty', 'koala', 'monkey', 'penguin', 'pig', 'porcupine', 'puffer-fish', 'rabbit', 'rat-head', 'shell', 'snail', 'snake', 'squid', 'tiger', 'whale'];
+let cardImg = ['bear', 'camel', 'cat', 'chick', 'chicken', 'cockroach', 'cow', 'dolphin', 'elephant', 'fish', 'frog', 'horse', 'kitty', 'koala', 'monkey', 'penguin', 'pig', 'porcupine', 'puffer-fish', 'rabbit', 'rat-head', 'shell', 'snail', 'snake', 'squid', 'tiger', 'whale'];
 
 let stage = 1; // 게임 스테이지
 let time = 60; // 남은 시간
@@ -91,12 +91,12 @@ function startTimer() {
 
 // 카드 덱 생성
 function makeCardDeck() {
-    // 이미지는 26개인데 필요한 카드는 12개로 고정되어 있기 때문에 26개의 이미지 중 랜덤으로 12개를 뽑도록 구현
+    // 이미지는 27개인데 필요한 카드는 12개로 고정되어 있기 때문에 27개의 이미지 중 랜덤으로 12개를 뽑도록 구현
     let randomNumberArr = [];
 
     for (let i = 0; i < boardSize / 2; i++) {
         // 랜덤 값 뽑기
-        let randomNumber = getRandom(26, 0);
+        let randomNumber = getRandom(27, 0);
 
         // 중복 검사
         // cardDeckImgArr 안에 random 값이 없다면 cardDeckImgArr에 추가
