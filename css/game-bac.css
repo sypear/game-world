@@ -1,0 +1,378 @@
+#container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 646px;
+    height: 100%;
+}
+
+.menu {
+    width: 100%;
+    height: auto;
+}
+
+.menu__nav {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding-bottom: 10px;
+    font-size: 17px;
+    color: #FFF;
+}
+
+.menu__nav > * {
+    display: flex;
+    align-items: flex-end;
+}
+
+.menu__nav-home {
+    justify-content: flex-end;
+}
+
+.menu__nav-info {
+    cursor: pointer;
+}
+
+.menu__nav-info::before,
+.menu__nav-home--button {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.menu__nav-info::before {
+    background-image: url('./../img/common/info.png');
+}
+
+.menu__nav-home--button {
+    background-image: url('./../img/common/home.png');
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 646px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+.game::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.ground {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    left: 0;
+    width: 100%;
+    height: 90%;
+}
+
+.ground__record {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+}
+
+.ground__record--table {
+    width: 80%;
+    font-size: 13px;
+    letter-spacing: -0.8px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.ground__record--table th {
+    color: #FFF;
+    border: 1px solid #000;
+    background-color: #000;
+}
+
+.ground__record--table thead th:last-child::before,
+.ground__record--table thead th:last-child::after {
+    content: '⚾';
+}
+
+.ground__record--table tbody td {
+    width: 45%;
+    border: 1px solid #CCC;
+}
+
+.ground__bat {
+    width: 100%;
+    height: 15%;
+}
+
+.ground__bat--form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.form__input-wrapper {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 33px;
+}
+
+.form__input {
+    width: 20%;
+    height: 60%;
+    text-align: center;
+    border: 1px solid #CCC;
+    border-radius: .5rem;
+}
+
+.form__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+
+.white-button {
+    width: 20%;
+    height: 60%;
+    padding: 5px;
+}
+
+.modal {
+    display: none;
+    letter-spacing: -0.04em;
+}
+
+.modal-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: auto;
+    padding: 30px;
+    z-index: 9999;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+.info-modal .modal__content {
+    width: 90%;
+    max-width: 450px;
+    padding: 10px;
+    word-break: keep-all;
+}
+
+.info-modal h1 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.info-modal .modal__content-desc {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.info-modal .modal__content-desc--main {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.info-modal .modal__content-desc--list {
+    padding-left: 20px;
+}
+
+.info-modal .modal__content-desc--list li {
+    margin-bottom: 10px;
+    text-indent: -20px;
+}
+
+.info-modal .modal__content-desc--list li:last-child {
+    margin-bottom: 0;
+}
+
+.info-modal .modal__content-desc--list li::before {
+    content: '🤍';
+}
+
+.modal__content-title--result {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.modal__content-title--stage {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.modal__content-title--desc {
+    font-size: 15px;
+}
+
+.modal__content-close-button {
+    width: 100%;
+    font-size: 14px;
+}
+
+.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+    .menu__nav {
+        font-size: 21px;
+    }
+
+    .menu__nav-info::before,
+    .menu__nav-home--button {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ground__record {
+        height: 80%;
+    }
+
+    .ground__record--table {
+        font-size: 17px;
+    }
+
+    .ground__record--table th,
+    .ground__record--table td {
+        height: 40px;
+    }
+
+    .ground__record--table thead th {
+        font-size: 20px;
+    }
+
+    .form__input-wrapper {
+        margin-right: 63px;
+    }
+
+    .form__input {
+        width: 20%;
+        height: 40%;
+        font-size: 17px;
+    }
+    
+    .form__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+    }
+
+    .modal__content,
+    .info-modal .modal__content {
+        width: 50%;
+    }
+
+    .info-modal h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .info-modal .modal__content {
+        padding: 30px;
+    }
+    
+    .info-modal .modal__content-desc {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    
+    .info-modal .modal__content-desc--main {
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+
+    
+    .info-modal .modal__content-desc--list li {
+        text-indent: -25px;
+    }
+
+    .info-modal .modal__content-close-button {
+        width: 40%;
+    }
+    
+    .modal__content-title--result {
+        margin-bottom: 15px;
+    }
+
+    .modal__content-title--desc {
+        font-size: 18px;
+    }
+    
+    .modal__content-close-button {
+        font-size: 17px;
+    }
+    
+    .white-button {
+        width: 20%;
+        height: 40%;
+        padding: 5px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .info-modal .modal__content {
+        width: 35%;
+    }
+
+    .modal__content {
+        width: 20%;
+    }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game World : 숫자 야구</title>
+    <meta name="description" content="Vanilla JS를 이용한 Mini Game Project - 숫자 야구">
+    <link rel="icon" type="image/x-ico" href="./resources/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/common/styles.css">
+    <link rel="stylesheet" href="./css/game-bac.css">
+</head>
+<body>
+    <div id="container" class="no-drag">
+        <div class="board">
+            <header class="menu">
+                <nav class="menu__nav">
+                    <div class="menu__nav-info">
+                    </div>
+                    <div class="menu__nav-home">
+                        <a href="./index.html#game" class="menu__nav-home--button" id="home-button">
+                            <span class="sr-only">메인 페이지로 이동</span>
+                        </a>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="game">
+                <div class="ground">
+                    <div class="ground__record">
+                        <table class="ground__record--table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <span class="sr-only">회차</span>
+                                    </th>
+                                    <th scope="col" colspan="2">RECORD</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9회</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ground__bat">
+                        <form class="ground__bat--form">
+                            <div class="form__input-wrapper">
+                                <input type="text" maxlength="1" class="form__input" />
+                                <input type="text" maxlength="1" class="form__input" />
+                                <input type="text" maxlength="1" class="form__input" />
+                                <input type="text" maxlength="1" class="form__input" />
+                            </div>
+                            <button type="submit" class="white-button form__button">
+                                확인
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="modal modal-layer info-modal" id="info-modal">
+            <div class="modal__content">
+                <div class="modal__content-title">
+                    <h1 class="color-blue">숫자 야구 규칙</h1>
+                </div>
+
+                <div class="modal__content-desc">
+                    <h2 class="modal__content-desc--main">감춰진 4자리의 숫자를 맞춰보세요!</h2>
+                    <ul class="modal__content-desc--list">
+                        <li class="test">
+                            9회 안에 4자리 숫자와 위치를 모두 맞춰야 성공
+                        <li>
+                            숫자는 0~9까지 구성되어 있으며, 각 숫자는 한 번씩만 사용 가능
+                        </li>
+                        <li>
+                            숫자와 자리의 위치가 맞으면 스트라이크, 숫자만 맞으면 볼
+                        </li>
+                        <li>
+                            숫자가 하나도 맞지 않는 경우 아웃
+                        </li>
+                    </ul>
+                </div>
+        
+                <button class="white-button modal__content-close-button" id="info-modal-close-button" type="button">
+                    닫기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/game-bac.js"></script>
+</body>
+</html>
