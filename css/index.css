@@ -86,6 +86,10 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
+.game__wrapper:last-child {
+    margin-bottom: 0;
+}
+
 .game__overlay {
     position: absolute;
     width: 100%;
@@ -130,6 +134,10 @@
 
 #memory-test .game__image:after {
     background-image: url('./../img/index/memory-test.png');
+}
+
+#bulls-and-cows .game__image:after {
+    background-image: url('./../img/index/bulls-and-cows.png');
 }
 
 .game__title {
