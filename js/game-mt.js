@@ -93,8 +93,6 @@ function createAnswer() {
     for (let i = 0; i < answerCount; i++) {
         answerArr.push(getRandom(9, 0));
     }
-    
-    return answerArr;
 }
 
 // PC가 정답 선택
@@ -103,26 +101,43 @@ const items = document.getElementsByClassName("item");
 function selectAnswerOnPC() {
     let cnt = 0;
 
-    let selectTimer = setInterval(() => {
-        if (cnt > 0) {
-            items[answerArr[cnt]].classList.remove("select");
-            void items[answerArr[cnt]].offsetWidth;
+    let selectAnswerPromise = new Promise((resolve, reject) => {
+        let selectAnswerTimer = setInterval(() => {
+            // 배경색이 변하는 애니메이션 재시작을 위해 이미 bgChange 클래스가 부착되어 있다면 제거
+            if (items[answerArr[cnt]].classList.contains("bgChange")) {
+                items[answerArr[cnt]].classList.remove("bgChange");
+                void items[answerArr[cnt]].offsetWidth;
+                console.log("items[answerArr[cnt]].offsetWidth 값 : " + items[answerArr[cnt]].offsetWidth);
+                console.log("void items[answerArr[cnt]].offsetWidth 값 : " + void items[answerArr[cnt]].offsetWidth);
+            }
+
+            items[answerArr[cnt++]].classList.add("bgChange");
+
+            if (cnt === answerCount) {
+                clearInterval(selectAnswerTimer);
+    
+                resolve();
+            }
+        }, 800);
+    });
+
+    selectAnswerPromise.then(() => {
+        // selectAnswerPromise 성공인 경우 실행할 코드
+        setTimeout(waitGameStart, 800);
+    });
+}
+
+// 게임 시작 전 대기
+function waitGameStart() {
+    // 정답 아이템에 배경색이 변하는 애니메이션을 주기 위해 부착했던 bgChange 클래스 제거
+    for (let i = 0; i < answerArr.length; i++) {
+        if (items[answerArr[i]].classList.contains("bgChange")) {
+            items[answerArr[i]].classList.remove("bgChange");
         }
-        items[answerArr[cnt++]].classList.add("select");
+    }
 
-        if (cnt === answerCount) {
-            clearInterval(selectTimer);
-
-            let turnChangeTimer = setTimeout(() => {
-                for (let i = 0; i < answerArr.length; i++) {
-                    items[answerArr[i]].classList.remove("select");
-                }
-
-                changeClickFlag(true);
-                changeTurn("YOU");
-            }, 800);
-        }
-    }, 800);
+    changeClickFlag(true);
+    changeTurn("YOU");
 }
 
 // 난수 생성
