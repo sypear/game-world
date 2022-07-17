@@ -131,9 +131,9 @@ function getRandom(max, min) {
 }
 
 // 사용자 클릭 이벤트
-const gameBoard = document.getElementsByClassName("game__board")[0];
+const itemWrapper = document.getElementsByClassName("item-wrapper")[0];
 
-gameBoard.addEventListener("click", function(e) {
+itemWrapper.addEventListener("click", function(e) {
     // isClick 값이 false면 클릭 이벤트가 발생하지 않도록 함
     if (isClick === false) {
         return;
@@ -145,9 +145,9 @@ gameBoard.addEventListener("click", function(e) {
 });
 
 function checkCorrectAnswer(targetId) {
-    // 사용자가 선택한 블록의 id와 정답 id가 일치하면 맞은 것으로 판단
+    // 사용자가 선택한 블록의 id와 정답이 일치하면 맞은 것으로 판단
     if (targetId === answerArr[playerSelectionCount++]) {
-        // 사용자의 선택 횟수가 정답 횟수와 같아지면 전부 맞은 것으로 판단
+        // 사용자의 선택 횟수가 정답 개수(PC의 선택값 개수)와 같아지면 전부 맞은 것으로 판단
         if (playerSelectionCount === answerCount) {
             clearStage();
         }
@@ -230,7 +230,7 @@ modal.addEventListener('click', function(e) {
 
 // isClick이 ture인 경우에만 CSS hover와 비슷한 효과를 주기 위해 JS로 구현
 // 아이템 요소에 마우스 over 시
-gameBoard.addEventListener("mouseover", function(e) {
+itemWrapper.addEventListener("mouseover", function(e) {
     if (isClick === false) {
         return;
     }
@@ -241,7 +241,7 @@ gameBoard.addEventListener("mouseover", function(e) {
 });
 
 // 아이템 요소에 마우스 out 시
-gameBoard.addEventListener("mouseout", function(e) {
+itemWrapper.addEventListener("mouseout", function(e) {
     if (isClick === false) {
         return;
     }
