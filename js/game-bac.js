@@ -228,9 +228,9 @@ const gameResultImg = document.getElementsByClassName("game-result")[0];
 
 function showGameResult(isWin) {
     if (isWin === true) {
-        gameResultImg.style.backgroundImage = `url('../img/common/win.png')`;
+        gameResultImg.style.backgroundImage = `url('img/common/win.png')`;
     } else {
-        gameResultImg.style.backgroundImage = `url('../img/common/lose.png')`;
+        gameResultImg.style.backgroundImage = `url('img/common/lose.png')`;
     }
 
     gameResultImg.classList.add("show");
