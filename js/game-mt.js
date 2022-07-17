@@ -5,7 +5,7 @@ const COLOR_WHITE = "#FFF";
 
 let turn = "PC"; // 게임 차례
 let point = 0; // 사용자 획득 점수
-let answerCount = 1; // 정답 갯수
+let answerCount = 1; // 정답 개수
 let answerArr = []; // 정답을 저장하는 배열
 let playerSelectionCount = 0; // 사용자 선택 횟수
 let isClick = false;

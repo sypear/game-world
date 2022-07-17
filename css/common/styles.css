@@ -113,8 +113,8 @@ img {
     color: #76BA99;
 }
 
-.select {
-    animation: selectionEffect 400ms 2 alternate;
+.bgChange {
+    animation: bgChangeEffect 400ms 2 alternate;
 }
 
 .blink {
@@ -125,7 +125,7 @@ img {
     animation: vibrationEffect 100ms infinite;
 }
 
-@keyframes selectionEffect {
+@keyframes bgChangeEffect {
     from {
         background-color: #FFF;
     }
