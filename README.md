@@ -17,22 +17,29 @@
 * [메인 페이지 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A9%94%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80)
 <br/>
 
-# 🖐 가위바위보 게임
+# 🖐 가위바위보
 <p align="center"><img src="https://user-images.githubusercontent.com/105365737/178926712-82226223-10e3-4f52-a00a-131a271e924e.gif"></p>
 
 * 컴퓨터와 하는 가위바위보 게임 ([바로가기](https://sypear.github.io/game-world/game-rps.html))
-* [가위바위보 게임 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4)
+* [가위바위보 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4)
 <br/>
 
 # 🎨 다른 색깔 찾기
 <p align="center"><img src="https://user-images.githubusercontent.com/105365737/178927010-fdf8c456-1986-41d6-b249-8aa2df3a79fc.gif"></p>
 
 * 여러 개의 색 중 다른 색을 찾는 게임 ([바로가기](https://sypear.github.io/game-world/game-fdc.html))
-* [다른 색깔 찾기 게임 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%8B%A4%EB%A5%B8-%EC%83%89%EA%B9%94-%EC%B0%BE%EA%B8%B0)
+* [다른 색깔 찾기 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%8B%A4%EB%A5%B8-%EC%83%89%EA%B9%94-%EC%B0%BE%EA%B8%B0)
 <br/>
 
 # 🃏 카드 짝 맞추기
 <p align="center"><img src="https://user-images.githubusercontent.com/105365737/179338777-0a5651fe-b7a2-4d56-9532-840cd096c9f1.gif"></p>
 
 * 카드를 뒤집어 같은 그림의 카드를 맞추는 게임 ([바로가기](https://sypear.github.io/game-world/game-cm.html))
-* [카드 짝 맞추기 게임 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%B9%B4%EB%93%9C-%EC%A7%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0)
+* [카드 짝 맞추기 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%B9%B4%EB%93%9C-%EC%A7%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0)
+<br/>
+
+# 🧠 기억력 테스트
+<p align="center"><img src="https://user-images.githubusercontent.com/105365737/179374017-da0b65b5-5d4a-4837-b87b-b49e2193781a.gif"></p>
+
+* PC의 블록 선택 순서를 기억한 다음 순서를 똑같이 맞추는 게임 ([바로가기](https://sypear.github.io/game-world/game-mt.html))
+* [기억력 테스트 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B8%B0%EC%96%B5%EB%A0%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8)
