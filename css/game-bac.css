@@ -112,6 +112,7 @@
 
 .ground__record--table {
     width: 80%;
+    height: 90%;
     font-size: 13px;
     letter-spacing: -0.8px;
     text-align: center;
@@ -119,6 +120,7 @@
 }
 
 .ground__record--table th {
+    height: 10%;
     color: #FFF;
     border: 1px solid #000;
     background-color: #000;
@@ -129,9 +131,16 @@
     content: '⚾';
 }
 
+.ground__record--table tbody th {
+    width: 11%;
+}
+
 .ground__record--table tbody td {
-    width: 45%;
     border: 1px solid #CCC;
+}
+
+.ground__record--table tbody td:last-child {
+    width: 60%;
 }
 
 .ground__bat {
@@ -162,6 +171,7 @@
     text-align: center;
     border: 1px solid #CCC;
     border-radius: .5rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 
 .form__button {
@@ -273,6 +283,20 @@
     font-size: 14px;
 }
 
+.game-result {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    width: 230px;
+    height: 230px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation: movingEffect 130ms 10 alternate;
+}
+
 .show {
     display: block;
     opacity: 1;
@@ -378,6 +402,11 @@
         width: 20%;
         height: 40%;
         padding: 5px;
+    }
+
+    .game-result {
+        width: 330px;
+        height: 330px;
     }
 }
 
