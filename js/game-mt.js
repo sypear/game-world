@@ -202,13 +202,13 @@ function showGameResult() {
     if (point <= 20) {
         resultText = "한 눈 팔면 안돼요!";
     } else if (point > 20 && point <= 40) {
-        resultText = " ૮ฅ・ﻌ・აฅ<br/><br/>댕댕이와 비슷한 IQ를<br/>가지셨네요!";
+        resultText = "집중력을 좀 더 높여볼까요?<br/>ฅʕ•ㅅ•ʔฅ<br/><br/>곰돌이가 당신을 응원합니다.";
     } else if (point > 40 && point <= 60) {
-        resultText = "^   ^<br/>(◕ㅅ◕｡)<br/><br/>냥냥이와 비슷한 IQ를<br/>가지셨네요!";
+        resultText = "눈을 크게 뜨고 다시 해봅시다!<br/>Ꮚ•̀ꈊ•́Ꮚ<br/><br/>귀여운 양이 당신을 응원합니다.";
     } else if (point > 60 && point <= 80) {
-        resultText = "다..🐬..다..🐬..다..🐬..다...🐬...다다다..🐬...다다다...🌀🌀또🌀물보라를🌀일으켜🌀🌀<br/><br/>돌고래와 비슷한 IQ를<br/>가지셨네요!";
+        resultText = "조금만 더 힘내요!<br/>^   ^<br/>(◕ㅅ◕｡)<br/><br/>냥냥이가 당신을 응원합니다.";
     } else if (point > 80 && point <= 120) {
-        resultText = "(ว˙∇˙)ง (ง˙∇˙)ว<br/><br/>인간 평균의 IQ를<br/>가지셨네요!";
+        resultText = "더 할 수 있어요!<br/>૮ฅ・ﻌ・აฅ<br/><br/>댕댕이가 당신을 응원합니다.";
     } else if (point > 120 && point <= 170) {
         resultText = "ㄴ(°0°)ㄱ<br/>상상도 못한 정체<br/><br/>엄청난 기억력을<br/>가지셨네요!";
     } else if (point > 170) {
