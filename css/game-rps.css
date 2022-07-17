@@ -43,7 +43,11 @@
     flex-grow: 1;
 }
 
-.menu-show-state::before,
+.menu__nav-stop {
+    margin-right: 10px;
+}
+
+.menu__nav-life::before,
 .menu__nav-stop--button,
 .menu__nav-home--button {
     content: '';
@@ -56,17 +60,12 @@
     background-size: contain;
 }
 
-.menu-show-state::before {
+.menu__nav-life::before {
     margin-right: 3px;
-}
-
-.menu__nav-life.menu-show-state::before {
     background-image: url('./../img/common/heart.png');
 }
 
 .menu__nav-stop--button {
-    margin-right: 10px;
-    background-color: transparent;
     background-image: url('./../img/common/stop.png');
 }
 
@@ -253,15 +252,19 @@
         font-size: 21px;
     }
 
-    .menu-show-state::before,
+    .menu__nav-life::before,
     .menu__nav-stop--button,
     .menu__nav-home--button {
         width: 24px;
         height: 24px;
     }
 
-    .menu-show-state::before {
+    .menu__nav-life::before {
         margin-right: 5px;
+    }
+
+    .menu__nav-stop {
+        margin-right: 20px;
     }
 
     .game__score {

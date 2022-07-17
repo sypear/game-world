@@ -19,9 +19,17 @@
             <header class="menu">
                 <nav class="menu__nav">
                     <div class="menu__nav-info">
+                        <div class="menu__nav-info--button" id="info-button">
+                            <span class="sr-only">게임 규칙</span>
+                        </div>
+                    </div>
+                    <div class="menu__nav-restart">
+                        <div class="menu__nav-restart--button" id="restart-button">
+                            <span class="sr-only">게임 재시작</span>
+                        </div>
                     </div>
                     <div class="menu__nav-home">
-                        <a href="./index.html#game" class="menu__nav-home--button" id="home-button">
+                        <a href="./index.html#bulls-and-cows" class="menu__nav-home--button" id="home-button">
                             <span class="sr-only">메인 페이지로 이동</span>
                         </a>
                     </div>
@@ -90,14 +98,14 @@
                         </table>
                     </div>
                     <div class="ground__bat">
-                        <form class="ground__bat--form">
+                        <form action="#" method="get" id="bat-form" class="ground__bat--form">
                             <div class="form__input-wrapper">
-                                <input type="text" maxlength="1" class="form__input" />
-                                <input type="text" maxlength="1" class="form__input" />
-                                <input type="text" maxlength="1" class="form__input" />
-                                <input type="text" maxlength="1" class="form__input" />
+                                <input type="text" id="first-num" class="form__input" maxlength="1" inputmode="numeric" />
+                                <input type="text" id="second-num" class="form__input" maxlength="1" inputmode="numeric" />
+                                <input type="text" id="third-num" class="form__input" maxlength="1" inputmode="numeric" />
+                                <input type="text" id="fourth-num" class="form__input" maxlength="1" inputmode="numeric" />
                             </div>
-                            <button type="submit" class="white-button form__button">
+                            <button type="button" class="white-button form__button">
                                 확인
                             </button>
                         </form>
@@ -116,9 +124,9 @@
                     <h2 class="modal__content-desc--main">감춰진 4자리의 숫자를 맞춰보세요!</h2>
                     <ul class="modal__content-desc--list">
                         <li class="test">
-                            9회 안에 4자리 숫자와 위치를 모두 맞춰야 성공
+                            9회 안에 감춰진 4자리 숫자와 정확한 위치를 모두 맞춰야 성공!
                         <li>
-                            숫자는 0~9까지 구성되어 있으며, 각 숫자는 한 번씩만 사용 가능
+                            숫자는 0~9까지의 범위로 되어 있으며, 각 숫자는 한 번씩만 사용 가능합니다.
                         </li>
                         <li>
                             숫자와 자리의 위치가 맞으면 스트라이크, 숫자만 맞으면 볼
