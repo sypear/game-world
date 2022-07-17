@@ -107,8 +107,6 @@ function selectAnswerOnPC() {
             if (items[answerArr[cnt]].classList.contains("bgChange")) {
                 items[answerArr[cnt]].classList.remove("bgChange");
                 void items[answerArr[cnt]].offsetWidth;
-                console.log("items[answerArr[cnt]].offsetWidth 값 : " + items[answerArr[cnt]].offsetWidth);
-                console.log("void items[answerArr[cnt]].offsetWidth 값 : " + void items[answerArr[cnt]].offsetWidth);
             }
 
             items[answerArr[cnt++]].classList.add("bgChange");
