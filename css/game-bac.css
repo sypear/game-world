@@ -120,7 +120,6 @@
 }
 
 .ground__record--table th {
-    height: 10%;
     color: #FFF;
     border: 1px solid #000;
     background-color: #000;
@@ -163,11 +162,13 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 33px;
+    font-size: 13px;
 }
 
 .form__input {
     width: 20%;
     height: 60%;
+    max-height: 30px;
     text-align: center;
     border: 1px solid #CCC;
     border-radius: .5rem;
@@ -184,6 +185,7 @@
 .white-button {
     width: 20%;
     height: 60%;
+    max-height: 30px;
     padding: 5px;
 }
 
@@ -212,9 +214,11 @@
     justify-content: center;
     align-items: center;
     width: 70%;
+    max-width: 300px;
     height: auto;
-    padding: 30px;
+    padding: 20px;
     z-index: 9999;
+    text-align: center;
     border-radius: 5px;
     background-color: #FFF;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
@@ -228,7 +232,6 @@
 }
 
 .info-modal h1 {
-    text-align: center;
     font-size: 18px;
     margin-bottom: 15px;
 }
@@ -243,11 +246,11 @@
     margin-bottom: 15px;
     font-size: 16px;
     font-weight: 700;
-    text-align: center;
 }
 
 .info-modal .modal__content-desc--list {
     padding-left: 20px;
+    text-align: left;
 }
 
 .info-modal .modal__content-desc--list li {
@@ -263,23 +266,16 @@
     content: '🤍';
 }
 
-.modal__content-title--result {
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-.modal__content-title--stage {
+.modal__content-title--alert {
     display: inline-block;
-    margin-bottom: 10px;
-    font-size: 17px;
-}
-
-.modal__content-title--desc {
+    margin-bottom: 20px;
     font-size: 15px;
+    font-weight: 700;
 }
 
 .modal__content-close-button {
     width: 100%;
+    padding: 3px;
     font-size: 14px;
 }
 
@@ -327,8 +323,7 @@
         font-size: 17px;
     }
 
-    .ground__record--table th,
-    .ground__record--table td {
+    .ground__record--table th{
         height: 40px;
     }
 
@@ -353,7 +348,11 @@
         font-size: 17px;
     }
 
-    .modal__content,
+    .alert-modal .modal__content {
+        padding: 30px 20px;
+        width: 30%;
+    }
+
     .info-modal .modal__content {
         width: 50%;
     }
@@ -376,7 +375,6 @@
         margin-bottom: 20px;
         font-size: 19px;
     }
-
     
     .info-modal .modal__content-desc--list li {
         text-indent: -25px;
@@ -386,22 +384,13 @@
         width: 40%;
     }
     
-    .modal__content-title--result {
-        margin-bottom: 15px;
-    }
-
-    .modal__content-title--desc {
+    .modal__content-title--alert {
         font-size: 18px;
     }
     
     .modal__content-close-button {
-        font-size: 17px;
-    }
-    
-    .white-button {
-        width: 20%;
-        height: 40%;
-        padding: 5px;
+        width: 150px;
+        font-size: 15px;
     }
 
     .game-result {
