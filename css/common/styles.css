@@ -127,6 +127,17 @@ img {
     animation: vibrationEffect 100ms infinite;
 }
 
+.zoom {
+    animation: zoomEffect 500ms 2 alternate;
+}
+
+@keyframes zoomEffect {
+    to {
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
 @keyframes bgChangeEffect {
     from {
         background-color: #FFF;
@@ -169,6 +180,11 @@ img {
 
 /* Tablet */
 @media screen and (min-width: 768px) {
+    @keyframes zoomEffect {
+        to {
+            font-size: 22px;
+        }
+    }
 }
 
 /* Desktop */
