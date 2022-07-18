@@ -102,6 +102,10 @@ const num4 = document.getElementById("num4");
 
 // 키 입력 이벤트
 formInputWrapper.addEventListener("keyup", function(e) {
+    if (isPlay === false) {
+        return;
+    }
+
     // 입력값이 0-9가 아니면 value값을 공백으로 변경
     const regExp = /[^0-9]/g;
 
