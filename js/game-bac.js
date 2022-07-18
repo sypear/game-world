@@ -52,7 +52,7 @@ function initScreen() {
     for (let i = 0; i < ANSWER_SIZE; i++) {
         formInput[i].value = '';
     }
-    formInput[0].focus();
+    num1.focus();
 
     restartButton.classList.remove("blink");
 }
@@ -275,6 +275,7 @@ const infoModalCloseButton = document.getElementById("info-modal-close-button");
 infoModal.addEventListener("click", function(e) {
     if (e.target === infoModal || e.target === infoModalCloseButton) {
         infoModal.classList.remove("show");
+        num1.focus();
     }
 });
 
@@ -298,6 +299,7 @@ const alertModalCloseButton = document.getElementById("alert-modal-close-button"
 alertModal.addEventListener("click", function(e) {
     if (e.target === alertModal || e.target === alertModalCloseButton) {
         alertModal.classList.remove("show");
+        num1.focus();
     }
 });
 
@@ -320,11 +322,19 @@ function showGameResult(isWin) {
     }, 2000);
 }
 
-// 엔터 클릭으로 모달창 닫기
+// ESC키 클릭으로 모달창 닫기
 document.addEventListener("keydown", function(e) {
+    if (infoModal.classList.contains("show")) {
+        if (e.keyCode === 27) {
+            infoModal.classList.remove("show");
+            num1.focus();
+        }
+    }
+
     if (alertModal.classList.contains("show")) {
         if (e.keyCode === 27) {
             alertModal.classList.remove("show");
+            num1.focus();
         }
     }
 });
