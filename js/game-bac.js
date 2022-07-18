@@ -41,6 +41,7 @@ function initScreen() {
         for (let i = 0; i < ANSWER_SIZE; i++) {
             formInput[i].readOnly = false;
             formInput[i].style.backgroundColor = "#FFF";
+            formInput[i].classList.remove("zoom");
         }
     
         formButton.disabled = false;
@@ -52,6 +53,8 @@ function initScreen() {
         formInput[i].value = '';
     }
     formInput[0].focus();
+
+    restartButton.classList.remove("blink");
 }
 
 // 게임 종료 후 재시작 전까지 게임 진행할 수 없도록 화면 조정
@@ -59,8 +62,10 @@ function stopScreen() {
     isStopScreen = true;
 
     for (let i = 0; i < ANSWER_SIZE; i++) {
+        formInput[i].value = answer[i]; // 정답 출력
         formInput[i].readOnly = true;
         formInput[i].style.backgroundColor = "#CCC";
+        formInput[i].classList.add("zoom");
     }
 
     formButton.disabled = true;
@@ -88,36 +93,86 @@ restartButton.addEventListener("click", function() {
     restartGame();
 });
 
-// 확인 버튼 클릭 이벤트
+// 사용자 입력값 유효성 검사
+const formInputWrapper = document.getElementsByClassName("form__input-wrapper")[0];
+const num1 = document.getElementById("num1");
+const num2 = document.getElementById("num2");
+const num3 = document.getElementById("num3");
+const num4 = document.getElementById("num4");
+
+// 키 입력 이벤트
+formInputWrapper.addEventListener("keyup", function(e) {
+    // 입력값이 0-9가 아니면 value값을 공백으로 변경
+    const regExp = /[^0-9]/g;
+
+    if (regExp.test(e.target.value)) {
+        e.target.value = "";
+    }
+
+    // 오른쪽 방향키 입력 시 다음 필드로 이동
+    if (e.keyCode === 39 && e.target.nextElementSibling) {
+        e.target.nextElementSibling.focus();
+    }
+
+    // 왼쪽 방향키 입력 시 이전 필드로 이동
+    if (e.keyCode === 37 && e.target.previousElementSibling) {
+        e.target.previousElementSibling.focus();
+    }
+
+    // 엔터 입력 시 값 검사
+    if (e.keyCode === 13) {
+        inputCheck();
+    }
+});
+
+// 확인 버튼 클릭 시 검사
+// 1. 빈 값 체크
+// 2. 중복 체크
+function inputCheck() {
+    // 검사할 요소 변수에 저장
+    let numArr = [num1.value, num2.value, num3.value, num4.value];
+
+    // 빈 값 체크
+    for (let i = 0; i < ANSWER_SIZE; i++) {
+        if (!numArr[i]) {
+            showAlert("숫자를 전부 입력해주세요.");
+            return;
+        }
+    }
+
+    // 중복 체크
+    let numSet = new Set(numArr); // 중복을 허용하지 않는 Set 객체에 array 대입
+
+    if (numArr.length > numSet.size) {
+        showAlert("중복된 숫자가 있어요!");
+        return;
+    }
+    
+    checkUserInput();
+}
+
+// 유효성 검사 통과 시 정답 판별
 const formButton = document.getElementById("bat-form-button");
 const formInput = document.getElementsByClassName("form__input");
 
-formButton.addEventListener("click", function() {
-    if (isPlay === false) {
-        console.log("응아니야");
-        return;
-    }
-
+function checkUserInput() {
     let userInputArr = [];
 
     for (let i = 0; i < ANSWER_SIZE; i++) {
         userInputArr.push(parseInt(formInput[i].value));
     }
 
-    console.log("입력 : " + userInputArr);
-    console.log("정답 : " + answer);
-
-    let result = checkUserInput(userInputArr);
+    let result = checkResult(userInputArr);
 
     // 화면에 기록 갱신
     showRecord(userInputArr, result);
 
     // 게임 진행 체크
     checkGameProgress(result);
-});
+}
 
 // 입력값 체크
-function checkUserInput(userInputArr) {
+function checkResult(userInputArr) {
     // 아웃인 경우
     if (checkUserOut(userInputArr) === true) {
         return "out";
@@ -217,9 +272,32 @@ infoButton.addEventListener("click", function() {
 const infoModal = document.getElementById("info-modal");
 const infoModalCloseButton = document.getElementById("info-modal-close-button");
 
-infoModal.addEventListener('click', function(e) {
+infoModal.addEventListener("click", function(e) {
     if (e.target === infoModal || e.target === infoModalCloseButton) {
         infoModal.classList.remove("show");
+    }
+});
+
+// 경고 모달창 출력
+const alertModalTitle = document.getElementById("alert-modal-title");
+
+function showAlert(alertMsg) {
+    alertModalTitle.innerHTML = `
+    <span class="modal__content-title--alert color-red">
+        📢 ${alertMsg}
+    </span>
+    `;
+
+    alertModal.classList.add("show");
+}
+
+// 경고 모달창 닫기
+const alertModal = document.getElementById("alert-modal");
+const alertModalCloseButton = document.getElementById("alert-modal-close-button");
+
+alertModal.addEventListener("click", function(e) {
+    if (e.target === alertModal || e.target === alertModalCloseButton) {
+        alertModal.classList.remove("show");
     }
 });
 
@@ -241,6 +319,15 @@ function showGameResult(isWin) {
         restartButton.classList.add("blink");
     }, 2000);
 }
+
+// 엔터 클릭으로 모달창 닫기
+document.addEventListener("keydown", function(e) {
+    if (alertModal.classList.contains("show")) {
+        if (e.keyCode === 27) {
+            alertModal.classList.remove("show");
+        }
+    }
+});
 
 window.onload = function() {
     startGame();
