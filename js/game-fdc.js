@@ -172,7 +172,7 @@ function initGame() {
     paletteRow = 2;
     paletteSize = paletteRow ** 2;
     targetIndex = 0;
-    targetOpacity = 0.6;
+    targetOpacity = 0.4;
     color = {};
 }
 
