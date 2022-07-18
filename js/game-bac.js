@@ -5,6 +5,7 @@ let answer = [];
 let round = 1;
 let isPlay = true;
 let isStopScreen = false;
+let isWrongInput = false;
 
 function startGame() {
     // 정답 생성
@@ -106,6 +107,15 @@ formInputWrapper.addEventListener("keyup", function(e) {
         return;
     }
 
+    // 엔터키로 값 확인 / 경고 모달창 닫기를 함께 사용 중에
+    // 모달창을 닫기위해 엔터를 눌렀을 때도 값 확인이 바로 진행되어 모달창이 연속해서 계속 뜨는 오류 발생
+    // 해결을 위하여 0.1초 지연 후 플래그를 바꿔주도록 하였음
+    if (isWrongInput === true) {
+        let timer = setTimeout(() => {
+            isWrongInput = false;
+        }, 10);
+    }
+
     // 입력값이 0-9가 아니면 value값을 공백으로 변경
     const regExp = /[^0-9]/g;
 
@@ -113,32 +123,28 @@ formInputWrapper.addEventListener("keyup", function(e) {
         e.target.value = "";
     }
 
-    // 오른쪽 방향키 입력 시 다음 필드로 이동
-    if (e.keyCode === 39 && e.target.nextElementSibling) {
+    // 값 입력 시 자동으로 다음 필드로 이동
+    if (e.target.value.length === 1 && e.target.nextElementSibling) {
         e.target.nextElementSibling.focus();
     }
 
-    // 왼쪽 방향키 입력 시 이전 필드로 이동
-    if (e.keyCode === 37 && e.target.previousElementSibling) {
-        e.target.previousElementSibling.focus();
-    }
-
     // 엔터 입력 시 값 검사
-    if (e.keyCode === 13) {
-        inputCheck();
+    if (e.code === "Enter" && isWrongInput === false) {
+        checkInput();
     }
 });
 
 // 확인 버튼 클릭 시 검사
 // 1. 빈 값 체크
 // 2. 중복 체크
-function inputCheck() {
+function checkInput() {
     // 검사할 요소 변수에 저장
     let numArr = [num1.value, num2.value, num3.value, num4.value];
 
     // 빈 값 체크
     for (let i = 0; i < ANSWER_SIZE; i++) {
         if (!numArr[i]) {
+            isWrongInput = true;
             showAlert("숫자를 전부 입력해주세요.");
             return;
         }
@@ -148,18 +154,19 @@ function inputCheck() {
     let numSet = new Set(numArr); // 중복을 허용하지 않는 Set 객체에 array 대입
 
     if (numArr.length > numSet.size) {
+        isWrongInput = true;
         showAlert("중복된 숫자가 있어요!");
         return;
     }
     
-    checkUserInput();
+    checkCorrectAnswer();
 }
 
 // 유효성 검사 통과 시 정답 판별
 const formButton = document.getElementById("bat-form-button");
 const formInput = document.getElementsByClassName("form__input");
 
-function checkUserInput() {
+function checkCorrectAnswer() {
     let userInputArr = [];
 
     for (let i = 0; i < ANSWER_SIZE; i++) {
@@ -257,6 +264,13 @@ function showRecord(userInputArr, result) {
 
 // 다음 라운드로 이동
 function moveNextRound() {
+    // input값 초기화
+    for (let i = 0; i < ANSWER_SIZE; i++) {
+        formInput[i].value = '';
+    }
+    num1.focus();
+    
+    // 라운드 카운트 추가
     round++;
 }
 
@@ -303,7 +317,6 @@ const alertModalCloseButton = document.getElementById("alert-modal-close-button"
 alertModal.addEventListener("click", function(e) {
     if (e.target === alertModal || e.target === alertModalCloseButton) {
         alertModal.classList.remove("show");
-        num1.focus();
     }
 });
 
@@ -326,19 +339,17 @@ function showGameResult(isWin) {
     }, 2000);
 }
 
-// ESC키 클릭으로 모달창 닫기
+// 엔터키 클릭으로 모달창 닫기
 document.addEventListener("keydown", function(e) {
     if (infoModal.classList.contains("show")) {
-        if (e.keyCode === 27) {
+        if (e.code === "Enter") {
             infoModal.classList.remove("show");
-            num1.focus();
         }
     }
 
     if (alertModal.classList.contains("show")) {
-        if (e.keyCode === 27) {
+        if (e.code === "Enter" && isWrongInput === true) {
             alertModal.classList.remove("show");
-            num1.focus();
         }
     }
 });
