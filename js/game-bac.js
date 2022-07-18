@@ -41,7 +41,7 @@ function initScreen() {
         for (let i = 0; i < ANSWER_SIZE; i++) {
             formInput[i].readOnly = false;
             formInput[i].style.backgroundColor = "#FFF";
-            formInput[i].classList.remove("zoom");
+            formInput[i].style.fontWeight = "400";
         }
     
         formButton.disabled = false;
@@ -65,7 +65,7 @@ function stopScreen() {
         formInput[i].value = answer[i]; // 정답 출력
         formInput[i].readOnly = true;
         formInput[i].style.backgroundColor = "#CCC";
-        formInput[i].classList.add("zoom");
+        formInput[i].style.fontWeight = "700";
     }
 
     formButton.disabled = true;
