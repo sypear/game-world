@@ -98,14 +98,14 @@
                         </table>
                     </div>
                     <div class="ground__bat">
-                        <form action="#" method="get" id="bat-form" class="ground__bat--form">
+                        <form action="#" method="get" id="bat-form" name="bat-form" class="ground__bat--form" autocomplete="off">
                             <div class="form__input-wrapper">
-                                <input type="text" class="form__input" maxlength="1" inputmode="numeric" autofocus />
-                                <input type="text" class="form__input" maxlength="1" inputmode="numeric" />
-                                <input type="text" class="form__input" maxlength="1" inputmode="numeric" />
-                                <input type="text" class="form__input" maxlength="1" inputmode="numeric" />
+                                <input type="text" id="num1" name="num1" class="form__input" maxlength="1" inputmode="numeric" autofocus />
+                                <input type="text" id="num2" name="num2" class="form__input" maxlength="1" inputmode="numeric" />
+                                <input type="text" id="num3" name="num3" class="form__input" maxlength="1" inputmode="numeric" />
+                                <input type="text" id="num4" name="num4" class="form__input" maxlength="1" inputmode="numeric" />
                             </div>
-                            <button type="button" class="white-button form__button" id="bat-form-button">
+                            <button type="button" class="white-button form__button" id="bat-form-button" onclick="inputCheck();">
                                 확인
                             </button>
                         </form>
