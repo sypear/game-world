@@ -5,7 +5,7 @@ let answer = [];
 let round = 1;
 let isPlay = true;
 let isStopScreen = false;
-let isWrongInput = false;
+let isShowAlertModal = false;
 
 function startGame() {
     // 정답 생성
@@ -110,9 +110,9 @@ formInputWrapper.addEventListener("keyup", function(e) {
     // 엔터키로 값 확인 / 경고 모달창 닫기를 함께 사용 중에
     // 모달창을 닫기위해 엔터를 눌렀을 때도 값 확인이 바로 진행되어 모달창이 연속해서 계속 뜨는 오류 발생
     // 해결을 위하여 0.1초 지연 후 플래그를 바꿔주도록 하였음
-    if (isWrongInput === true) {
+    if (isShowAlertModal === true) {
         let timer = setTimeout(() => {
-            isWrongInput = false;
+            isShowAlertModal = false;
         }, 10);
     }
 
@@ -129,22 +129,22 @@ formInputWrapper.addEventListener("keyup", function(e) {
     }
 
     // 엔터 입력 시 값 검사
-    if (e.code === "Enter" && isWrongInput === false) {
+    if (e.code === "Enter" && isShowAlertModal === false) {
         checkInput();
     }
 });
 
 // 확인 버튼 클릭 시 검사
-// 1. 빈 값 체크
+// 1. 빈값 체크
 // 2. 중복 체크
 function checkInput() {
     // 검사할 요소 변수에 저장
     let numArr = [num1.value, num2.value, num3.value, num4.value];
 
-    // 빈 값 체크
+    // 빈값 체크
     for (let i = 0; i < ANSWER_SIZE; i++) {
         if (!numArr[i]) {
-            isWrongInput = true;
+            isShowAlertModal = true;
             showAlert("숫자를 전부 입력해주세요.");
             return;
         }
@@ -154,7 +154,7 @@ function checkInput() {
     let numSet = new Set(numArr); // 중복을 허용하지 않는 Set 객체에 array 대입
 
     if (numArr.length > numSet.size) {
-        isWrongInput = true;
+        isShowAlertModal = true;
         showAlert("중복된 숫자가 있어요!");
         return;
     }
@@ -348,7 +348,7 @@ document.addEventListener("keydown", function(e) {
     }
 
     if (alertModal.classList.contains("show")) {
-        if (e.code === "Enter" && isWrongInput === true) {
+        if (e.code === "Enter" && isShowAlertModal === true) {
             alertModal.classList.remove("show");
         }
     }
