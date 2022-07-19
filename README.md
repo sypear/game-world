@@ -50,7 +50,7 @@
 # 숫자 야구⚾
 <p align="center"><img src="https://user-images.githubusercontent.com/105365737/179691362-b9056749-7db5-412e-a697-d952a7cd329a.gif"></p>
 
-* 감춰진 4자리 숫자를 9회 안에 맞추는 게임 ([바로가기](https://sypear.github.io/game-world/game-mt.html))
+* 감춰진 4자리 숫자를 9회 안에 맞추는 게임 ([바로가기](https://sypear.github.io/game-world/game-bac.html))
 * [숫자 야구 자세한 구현 내용](https://velog.io/@sypear/JavaScript-%EB%AF%B8%EB%8B%88%EA%B2%8C%EC%9E%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%88%AB%EC%9E%90-%EC%95%BC%EA%B5%AC)
 <br/>
 
